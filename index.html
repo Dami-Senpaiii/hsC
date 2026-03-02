@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>highsystem | Cloud</title>
+  <meta name="description" content="Die bewährte highsystem Lösung – jetzt als sichere, skalierbare Cloud-Plattform." />
+  <style>
+    :root {
+      --bg0: #040812;
+      --bg1: #071428;
+      --bg2: #0a1f3a;
+      --text: #eaf1ff;
+      --muted: rgba(234, 241, 255, 0.72);
+      --line: rgba(234, 241, 255, 0.12);
+      --glass: rgba(255, 255, 255, 0.06);
+      --accent: #19b6ff;
+      --accent2: #2b5cff;
+      --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 20%, rgba(25, 182, 255, 0.12), transparent 60%),
+        radial-gradient(1000px 600px at 70% 30%, rgba(43, 92, 255, 0.14), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 45%, var(--bg2));
+      overflow-x: hidden;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      background: #fff;
+      color: #000;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      z-index: 999;
+    }
+
+    .pattern {
+      position: fixed;
+      inset: -2px;
+      pointer-events: none;
+      opacity: 0.35;
+      background:
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 22px 22px,
+        radial-gradient(circle at 1px 1px, rgba(25, 182, 255, 0.08) 1px, transparent 1px) 11px 11px / 44px 44px;
+      mask-image: radial-gradient(700px 500px at 25% 30%, black 55%, transparent 100%);
+      filter: blur(0.1px);
+      z-index: 1;
+    }
+
+    .container {
+      width: min(1160px, 92vw);
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(4, 8, 18, 0.72), rgba(4, 8, 18, 0.25));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      font-weight: 700;
+      min-width: 220px;
+    }
+
+    .brand-mark {
+      width: 1.75rem;
+      height: 1.75rem;
+      border-radius: 0.55rem;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(150deg, rgba(25, 182, 255, 0.95), rgba(43, 92, 255, 0.85));
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+      color: #fff;
+      font-size: 0.95rem;
+      line-height: 1;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: rgba(234, 241, 255, 0.78);
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      padding: 8px 6px;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--text);
+      border-bottom-color: rgba(25, 182, 255, 0.65);
+      outline: none;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      outline: none;
+    }
+
+    .btn.primary {
+      border-color: rgba(25, 182, 255, 0.45);
+      background: linear-gradient(180deg, rgba(25, 182, 255, 0.22), rgba(25, 182, 255, 0.08));
+      box-shadow: 0 18px 40px rgba(25, 182, 255, 0.14);
+    }
+
+    .hero {
+      position: relative;
+      padding: 70px 0 44px;
+      min-height: calc(88vh - 62px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(234, 241, 255, 0.7);
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: fit-content;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, var(--accent), rgba(25, 182, 255, 0.15));
+      box-shadow: 0 0 0 6px rgba(25, 182, 255, 0.1);
+    }
+
+    h1 {
+      margin: 16px 0 14px;
+      font-weight: 650;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      font-size: clamp(38px, 5vw, 60px);
+    }
+
+    .accent {
+      color: var(--accent);
+      text-shadow: 0 10px 45px rgba(25, 182, 255, 0.22);
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 54ch;
+      margin: 0 0 22px;
+    }
+
+    .hero-actions,
+    .trust {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-actions { margin-bottom: 18px; }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(234, 241, 255, 0.8);
+      font-size: 13px;
+    }
+
+    .check {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      background: rgba(25, 182, 255, 0.18);
+      border: 1px solid rgba(25, 182, 255, 0.35);
+    }
+
+    .check svg { width: 12px; height: 12px; }
+
+    .visual {
+      position: relative;
+      border-radius: 26px;
+      overflow: hidden;
+      min-height: 420px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background:
+        radial-gradient(900px 500px at 70% 20%, rgba(25, 182, 255, 0.18), transparent 55%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+    }
+
+    .visual::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.06), transparent 40%),
+        radial-gradient(circle at 20% 40%, rgba(43, 92, 255, 0.18), transparent 55%);
+      opacity: 0.9;
+    }
+
+    .silhouette {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.35)),
+        conic-gradient(from 180deg at 70% 40%, rgba(25, 182, 255, 0.22), transparent 40%, rgba(43, 92, 255, 0.2), transparent 75%),
+        radial-gradient(600px 420px at 70% 45%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.45));
+      mix-blend-mode: screen;
+      opacity: 0.55;
+      filter: blur(0.2px);
+    }
+
+    .gridlines {
+      position: absolute;
+      inset: -40px;
+      background:
+        linear-gradient(transparent 96%, rgba(255, 255, 255, 0.08) 96%) 0 0 / 100% 38px,
+        linear-gradient(90deg, transparent 96%, rgba(255, 255, 255, 0.06) 96%) 0 0 / 44px 100%;
+      opacity: 0.18;
+      transform: perspective(900px) rotateX(16deg);
+      transform-origin: center;
+    }
+
+    .float-card {
+      position: absolute;
+      width: min(260px, 72%);
+      border-radius: 16px;
+      padding: 14px;
+      background: rgba(10, 20, 35, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .float-card .row { display: flex; align-items: flex-start; gap: 12px; }
+
+    .ic {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(25, 182, 255, 0.14);
+      border: 1px solid rgba(25, 182, 255, 0.28);
+      flex: 0 0 auto;
+    }
+
+    .float-card h3 {
+      margin: 0;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+    }
+
+    .float-card p {
+      margin: 4px 0 0;
+      font-size: 13px;
+      color: rgba(234, 241, 255, 0.72);
+      line-height: 1.45;
+    }
+
+    .c1 { top: 18px; left: 18px; }
+    .c2 { top: 140px; right: 18px; }
+    .c3 { bottom: 18px; left: 22px; }
+
+    .stats {
+      margin-top: 26px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .stat {
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 14px;
+    }
+
+    .stat .k {
+      font-size: 12px;
+      color: rgba(234, 241, 255, 0.64);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .stat .v {
+      margin-top: 6px;
+      font-size: 18px;
+      font-weight: 650;
+    }
+
+    .section {
+      padding: 2rem 0;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 920px) {
+      nav ul { display: none; }
+      .hero { padding: 46px 0 34px; min-height: auto; }
+      .hero-grid { grid-template-columns: 1fr; gap: 22px; }
+      .visual { min-height: 360px; }
+      .stats { grid-template-columns: 1fr; }
+      .nav-cta,
+      .brand { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+  <div class="pattern" aria-hidden="true"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="highsystem Cloud Startseite">
+          <span class="brand-mark" aria-hidden="true">h</span>
+          <span>highsystem <span aria-hidden="true">|</span> Cloud</span>
+        </a>
+
+        <nav aria-label="Hauptnavigation">
+          <ul>
+            <li><a href="#produkt">Produkt</a></li>
+            <li><a href="#sicherheit">Sicherheit</a></li>
+            <li><a href="#preise">Preise</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn" href="#login">Login</a>
+          <a class="btn primary" href="#demo">Demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" id="top">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <p class="eyebrow"><span class="dot"></span> highsystem | Cloud</p>
+            <h1>Ihre Unternehmenslösung.<br><span class="accent">Jetzt in der Cloud.</span></h1>
+            <p class="lead">Die bewährte highsystem Technologie – als moderne, sichere und skalierbare Cloud-Plattform. Arbeiten Sie ortsunabhängig, stets aktuell und ohne eigenen Serverbetrieb.</p>
+
+            <div class="hero-actions">
+              <a class="btn primary" href="#demo">Jetzt Demo anfragen <span aria-hidden="true">→</span></a>
+              <a class="btn" href="#beratung">Beratungsgespräch</a>
+            </div>
+
+            <div class="trust" role="list" aria-label="Vertrauensmerkmale">
+              <div class="pill" role="listitem"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Schweizer Hosting</div>
+              <div class="pill" role="listitem"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>DSG &amp; DSGVO-konform</div>
+              <div class="pill" role="listitem"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Automatische Updates</div>
+              <div class="pill" role="listitem"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sicher &amp; skalierbar</div>
+            </div>
+
+            <div class="stats" aria-label="Kurzvorteile">
+              <div class="stat"><div class="k">Betrieb</div><div class="v">0% Server-Wartung</div></div>
+              <div class="stat"><div class="k">Verfügbarkeit</div><div class="v">24/7 Zugriff</div></div>
+              <div class="stat"><div class="k">Kosten</div><div class="v">Planbar pro Monat</div></div>
+            </div>
+          </div>
+
+          <div class="visual" aria-hidden="true">
+            <div class="gridlines"></div>
+            <div class="silhouette"></div>
+            <div class="float-card c1"><div class="row"><div class="ic">🔐</div><div><h3>Sicherheit</h3><p>Schweizer Rechenzentren, Verschlüsselung &amp; rollenbasierte Zugriffe.</p></div></div></div>
+            <div class="float-card c2"><div class="row"><div class="ic">⚡</div><div><h3>Immer aktuell</h3><p>Updates und Wartung automatisch – ohne Unterbruch im Betrieb.</p></div></div></div>
+            <div class="float-card c3"><div class="row"><div class="ic">📈</div><div><h3>Skalierbar</h3><p>Wächst mit Ihrem Unternehmen – flexibel nach Bedarf erweiterbar.</p></div></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="produkt"></section>
+    <section class="section" id="sicherheit"></section>
+    <section class="section" id="preise"></section>
+    <section class="section" id="kontakt"></section>
+    <section class="section" id="login"></section>
+    <section class="section" id="demo"></section>
+    <section class="section" id="beratung"></section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year">2026</span> highsystem | Cloud — Erste Version der Startseite.</div>
+  </footer>
+</body>
+</html>
