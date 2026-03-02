@@ -434,12 +434,39 @@
       border-radius: 22px;
       overflow: hidden;
       isolation: isolate;
-      background: radial-gradient(1200px 500px at 20% 10%, rgba(255, 255, 255, 0.12), transparent 60%),
-                  radial-gradient(900px 400px at 80% 40%, rgba(255, 255, 255, 0.08), transparent 55%),
-                  linear-gradient(135deg, rgba(20, 24, 35, 1), rgba(10, 14, 22, 1));
+      background:
+        linear-gradient(135deg, #0b1320 0%, #121f36 48%, #0a172c 100%);
       border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: 0 14px 50px rgba(0, 0, 0, 0.35);
       padding: clamp(22px, 4vw, 50px);
+    }
+
+    .products-banner__inner::before,
+    .products-banner__inner::after {
+      content: "";
+      position: absolute;
+      inset: -30%;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .products-banner__inner::before {
+      background:
+        radial-gradient(40% 35% at 25% 40%, rgba(25, 182, 255, 0.34), transparent 72%),
+        radial-gradient(36% 34% at 72% 64%, rgba(81, 116, 255, 0.28), transparent 72%),
+        radial-gradient(34% 30% at 55% 24%, rgba(54, 211, 255, 0.2), transparent 78%);
+      opacity: .9;
+      animation: bannerAurora 16s ease-in-out infinite alternate;
+    }
+
+    .products-banner__inner::after {
+      background:
+        repeating-linear-gradient(120deg,
+          rgba(255, 255, 255, 0.08) 0 1px,
+          transparent 1px 28px);
+      opacity: .12;
+      transform: scale(1.15);
+      animation: bannerDrift 18s linear infinite;
     }
 
     .splash {
@@ -587,6 +614,26 @@
       100% { opacity: 0; transform: translate(28px, -28px) scale(.9); }
     }
 
+    @keyframes bannerAurora {
+      0% {
+        transform: translate3d(-2%, -1%, 0) scale(1);
+        filter: hue-rotate(0deg) saturate(1);
+      }
+      50% {
+        transform: translate3d(2%, 2%, 0) scale(1.05);
+        filter: hue-rotate(12deg) saturate(1.08);
+      }
+      100% {
+        transform: translate3d(1%, -2%, 0) scale(1.03);
+        filter: hue-rotate(-10deg) saturate(0.96);
+      }
+    }
+
+    @keyframes bannerDrift {
+      from { transform: translate3d(0, 0, 0) scale(1.15); }
+      to { transform: translate3d(40px, -24px, 0) scale(1.15); }
+    }
+
     footer {
       padding: 3.5rem 0 4.5rem;
       color: var(--muted);
@@ -611,6 +658,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+      .products-banner__inner::before,
+      .products-banner__inner::after,
       .splash,
       .drop,
       .splash-title__small,
