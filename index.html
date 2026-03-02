@@ -395,6 +395,53 @@
       padding: 2rem 0;
     }
 
+    .products {
+      padding: 1.2rem 0 2.6rem;
+    }
+
+    .products h2 {
+      margin: 0 0 1rem;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.01em;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .infobox {
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 18px;
+      min-height: 160px;
+    }
+
+    .infobox__icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: rgba(25, 182, 255, 0.12);
+      border: 1px solid rgba(25, 182, 255, 0.28);
+      font-size: 1.2rem;
+    }
+
+    .infobox__title {
+      margin: 12px 0 8px;
+      font-size: 1.05rem;
+    }
+
+    .infobox__text {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.95rem;
+    }
+
     footer {
       padding: 2rem 0 3rem;
       color: var(--muted);
@@ -409,6 +456,7 @@
       .visual { min-height: 360px; }
       .stats-section { padding: 0 0 2rem; }
       .stats { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr; }
       .nav-cta,
       .brand { min-width: auto; }
     }
@@ -487,7 +535,66 @@
       </div>
     </section>
 
-    <section class="section" id="produkt"></section>
+    <section class="section products" id="produkt" aria-label="Produkte highsystem Cloud">
+      <div class="container">
+        <h2>Produkte von highsystem | CLOUD</h2>
+        <div class="products-grid">
+          <div class="infobox">
+            <div class="infobox__icon">💼</div>
+            <h3 class="infobox__title">Assetmanagement</h3>
+            <p class="infobox__text">Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus.</p>
+          </div>
+
+          <div class="infobox">
+            <div class="infobox__icon">🎧</div>
+            <h3 class="infobox__title">Helpdesk</h3>
+            <p class="infobox__text">Unterstützt Anwender mit Ticketing, SLA-Tracking und schnellem Ticket-Workflow.</p>
+          </div>
+
+          <div class="infobox">
+            <div class="infobox__icon">🖥️</div>
+            <h3 class="infobox__title">Betriebssystem</h3>
+            <p class="infobox__text">Standardisierung, Verwaltung und Monitoring der eingesetzten Betriebssysteme.</p>
+          </div>
+
+          <div class="infobox">
+            <div class="infobox__icon">📦</div>
+            <h3 class="infobox__title">Softwareverteilung</h3>
+            <p class="infobox__text">Automatische Auslieferung und Installation von Software im Netzwerk.</p>
+          </div>
+
+          <div class="infobox">
+            <div class="infobox__icon">🛠️</div>
+            <h3 class="infobox__title">Software Package Builder</h3>
+            <p class="infobox__text">Werkzeug zum Erstellen, Testen und Verwalten von Softwarepaketen.</p>
+          </div>
+
+          <div class="infobox">
+            <div class="infobox__icon">🔁</div>
+            <h3 class="infobox__title">Software Paket Service</h3>
+            <p class="infobox__text">Bereitstellung, Aktualisierung und Lifecycle-Verwaltung von Paketen.</p>
+          </div>
+
+          <div class="infobox">
+            <div class="infobox__icon">🧾</div>
+            <h3 class="infobox__title">Lizenzmanagement</h3>
+            <p class="infobox__text">Übersicht, Compliance und Verwaltung aller Softwarelizenzen.</p>
+          </div>
+
+          <div class="infobox">
+            <div class="infobox__icon">🔒</div>
+            <h3 class="infobox__title">Patchmanagement</h3>
+            <p class="infobox__text">Automatische Erkennung und Verteilung sicherheitsrelevanter Updates.</p>
+          </div>
+
+          <div class="infobox">
+            <div class="infobox__icon">🛡️</div>
+            <h3 class="infobox__title">Security Center</h3>
+            <p class="infobox__text">Zentrale Sicherheitsübersicht inklusive Alarmierung und Richtlinien.</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="section" id="sicherheit"></section>
     <section class="section" id="preise"></section>
     <section class="section" id="kontakt"></section>
