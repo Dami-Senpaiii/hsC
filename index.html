@@ -547,32 +547,110 @@
 
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 24px;
+      justify-items: center;
     }
 
-    .infobox {
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 24px;
-      min-height: 160px;
+    .product-circle {
+      width: min(580px, 100%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background:
+        radial-gradient(circle at 35% 30%, rgba(25, 182, 255, 0.16), transparent 62%),
+        radial-gradient(circle at 65% 70%, rgba(43, 92, 255, 0.2), transparent 70%),
+        rgba(255, 255, 255, 0.03);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(36px, 8vw, 60px);
+    }
+
+    .product-circle::before,
+    .product-circle::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .product-circle::before {
+      inset: 13%;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .product-circle::after {
+      inset: 32%;
+      border: 1px dashed rgba(25, 182, 255, 0.3);
+    }
+
+    .product-node {
+      position: absolute;
+      top: var(--top);
+      left: var(--left);
+      transform: translate(-50%, -50%);
+      width: clamp(84px, 12vw, 106px);
+      min-height: clamp(84px, 12vw, 106px);
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(10, 22, 43, 0.9);
+      color: var(--text);
+      display: grid;
+      place-items: center;
+      padding: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .product-node:hover,
+    .product-node:focus-visible,
+    .product-node.is-active {
+      transform: translate(-50%, calc(-50% - 3px)) scale(1.02);
+      border-color: rgba(25, 182, 255, 0.6);
+      background: rgba(18, 35, 67, 0.95);
+      outline: none;
     }
 
     .infobox__icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+      font-size: 1.45rem;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .infobox__title {
+      margin: 0;
+      font-size: 0.78rem;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .product-details {
+      width: min(760px, 100%);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px;
+      min-height: 170px;
+      box-shadow: var(--shadow);
+    }
+
+    .product-details .infobox__icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
       background: rgba(25, 182, 255, 0.12);
       border: 1px solid rgba(25, 182, 255, 0.28);
-      font-size: 1.2rem;
+      margin-bottom: 12px;
     }
 
-    .infobox__title {
-      margin: 16px 0 10px;
-      font-size: 1.05rem;
+    .product-details .infobox__title {
+      font-size: 1.15rem;
+      text-align: left;
+      margin-bottom: 10px;
     }
 
     .infobox__text {
@@ -652,7 +730,9 @@
       .products-banner__inner { border-radius: 18px; }
       .splash { inset: -68px -120px auto -90px; height: 220px; }
       .drop.d4, .drop.d6 { display: none; }
-      .products-grid { grid-template-columns: 1fr; }
+      .product-circle { padding: 36px; }
+      .product-node { width: 88px; min-height: 88px; }
+      .product-details { min-height: auto; }
       .nav-cta,
       .brand { min-width: auto; }
     }
@@ -765,58 +845,49 @@
           </div>
         </section>
         <div class="products-grid">
-          <div class="infobox">
-            <div class="infobox__icon">💼</div>
-            <h3 class="infobox__title">Assetmanagement</h3>
-            <p class="infobox__text">Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus.</p>
+          <div class="product-circle" id="product-circle" role="list" aria-label="Produkte Auswahl">
+            <button class="product-node is-active" type="button" role="listitem" style="--top: 8%; --left: 50%;" data-icon="💼" data-title="Assetmanagement" data-text="Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus." aria-controls="product-details" aria-expanded="true">
+              <span class="infobox__icon" aria-hidden="true">💼</span>
+              <span class="infobox__title">Assetmanagement</span>
+            </button>
+            <button class="product-node" type="button" role="listitem" style="--top: 22%; --left: 80%;" data-icon="🎧" data-title="Helpdesk" data-text="Unterstützt Anwender mit Ticketing, SLA-Tracking und schnellem Ticket-Workflow." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true">🎧</span>
+              <span class="infobox__title">Helpdesk</span>
+            </button>
+            <button class="product-node" type="button" role="listitem" style="--top: 50%; --left: 90%;" data-icon="🖥️" data-title="Betriebssystem" data-text="Standardisierung, Verwaltung und Monitoring der eingesetzten Betriebssysteme." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true">🖥️</span>
+              <span class="infobox__title">Betriebssystem</span>
+            </button>
+            <button class="product-node" type="button" role="listitem" style="--top: 76%; --left: 77%;" data-icon="📦" data-title="Softwareverteilung" data-text="Automatische Auslieferung und Installation von Software im Netzwerk." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true">📦</span>
+              <span class="infobox__title">Softwareverteilung</span>
+            </button>
+            <button class="product-node" type="button" role="listitem" style="--top: 91%; --left: 50%;" data-icon="🛠️" data-title="Software Package Builder" data-text="Werkzeug zum Erstellen, Testen und Verwalten von Softwarepaketen." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true">🛠️</span>
+              <span class="infobox__title">Package Builder</span>
+            </button>
+            <button class="product-node" type="button" role="listitem" style="--top: 76%; --left: 23%;" data-icon="🔁" data-title="Software Paket Service" data-text="Bereitstellung, Aktualisierung und Lifecycle-Verwaltung von Paketen." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true">🔁</span>
+              <span class="infobox__title">Paket Service</span>
+            </button>
+            <button class="product-node" type="button" role="listitem" style="--top: 50%; --left: 10%;" data-icon="🧾" data-title="Lizenzmanagement" data-text="Übersicht, Compliance und Verwaltung aller Softwarelizenzen." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true">🧾</span>
+              <span class="infobox__title">Lizenzmanagement</span>
+            </button>
+            <button class="product-node" type="button" role="listitem" style="--top: 22%; --left: 20%;" data-icon="🔒" data-title="Patchmanagement" data-text="Automatische Erkennung und Verteilung sicherheitsrelevanter Updates." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true">🔒</span>
+              <span class="infobox__title">Patchmanagement</span>
+            </button>
+            <button class="product-node" type="button" role="listitem" style="--top: 37%; --left: 50%;" data-icon="🛡️" data-title="Security Center" data-text="Zentrale Sicherheitsübersicht inklusive Alarmierung und Richtlinien." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true">🛡️</span>
+              <span class="infobox__title">Security Center</span>
+            </button>
           </div>
 
-          <div class="infobox">
-            <div class="infobox__icon">🎧</div>
-            <h3 class="infobox__title">Helpdesk</h3>
-            <p class="infobox__text">Unterstützt Anwender mit Ticketing, SLA-Tracking und schnellem Ticket-Workflow.</p>
-          </div>
-
-          <div class="infobox">
-            <div class="infobox__icon">🖥️</div>
-            <h3 class="infobox__title">Betriebssystem</h3>
-            <p class="infobox__text">Standardisierung, Verwaltung und Monitoring der eingesetzten Betriebssysteme.</p>
-          </div>
-
-          <div class="infobox">
-            <div class="infobox__icon">📦</div>
-            <h3 class="infobox__title">Softwareverteilung</h3>
-            <p class="infobox__text">Automatische Auslieferung und Installation von Software im Netzwerk.</p>
-          </div>
-
-          <div class="infobox">
-            <div class="infobox__icon">🛠️</div>
-            <h3 class="infobox__title">Software Package Builder</h3>
-            <p class="infobox__text">Werkzeug zum Erstellen, Testen und Verwalten von Softwarepaketen.</p>
-          </div>
-
-          <div class="infobox">
-            <div class="infobox__icon">🔁</div>
-            <h3 class="infobox__title">Software Paket Service</h3>
-            <p class="infobox__text">Bereitstellung, Aktualisierung und Lifecycle-Verwaltung von Paketen.</p>
-          </div>
-
-          <div class="infobox">
-            <div class="infobox__icon">🧾</div>
-            <h3 class="infobox__title">Lizenzmanagement</h3>
-            <p class="infobox__text">Übersicht, Compliance und Verwaltung aller Softwarelizenzen.</p>
-          </div>
-
-          <div class="infobox">
-            <div class="infobox__icon">🔒</div>
-            <h3 class="infobox__title">Patchmanagement</h3>
-            <p class="infobox__text">Automatische Erkennung und Verteilung sicherheitsrelevanter Updates.</p>
-          </div>
-
-          <div class="infobox">
-            <div class="infobox__icon">🛡️</div>
-            <h3 class="infobox__title">Security Center</h3>
-            <p class="infobox__text">Zentrale Sicherheitsübersicht inklusive Alarmierung und Richtlinien.</p>
+          <div class="product-details" id="product-details" aria-live="polite">
+            <div class="infobox__icon" id="product-detail-icon" aria-hidden="true">💼</div>
+            <h3 class="infobox__title" id="product-detail-title">Assetmanagement</h3>
+            <p class="infobox__text" id="product-detail-text">Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus.</p>
           </div>
         </div>
       </div>
@@ -832,5 +903,27 @@
   <footer>
     <div class="container">© <span id="year">2026</span> highsystem | Cloud — Erste Version der Startseite.</div>
   </footer>
+  <script>
+    const productNodes = document.querySelectorAll('.product-node');
+    const detailIcon = document.getElementById('product-detail-icon');
+    const detailTitle = document.getElementById('product-detail-title');
+    const detailText = document.getElementById('product-detail-text');
+
+    productNodes.forEach((node) => {
+      node.addEventListener('click', () => {
+        productNodes.forEach((item) => {
+          item.classList.remove('is-active');
+          item.setAttribute('aria-expanded', 'false');
+        });
+
+        node.classList.add('is-active');
+        node.setAttribute('aria-expanded', 'true');
+
+        detailIcon.textContent = node.dataset.icon;
+        detailTitle.textContent = node.dataset.title;
+        detailText.textContent = node.dataset.text;
+      });
+    });
+  </script>
 </body>
 </html>
