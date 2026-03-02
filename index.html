@@ -360,20 +360,22 @@
     .c2 { top: 140px; right: 18px; }
     .c3 { bottom: 18px; left: 22px; }
 
+    .stats-section {
+      padding: 0 0 2.8rem;
+    }
+
     .stats {
-      margin-top: 26px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 18px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+      gap: 16px;
     }
 
     .stat {
       border-radius: 16px;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 14px;
+      padding: 18px;
+      min-height: 104px;
     }
 
     .stat .k {
@@ -405,6 +407,7 @@
       .hero { padding: 46px 0 34px; min-height: auto; }
       .hero-grid { grid-template-columns: 1fr; gap: 22px; }
       .visual { min-height: 360px; }
+      .stats-section { padding: 0 0 2rem; }
       .stats { grid-template-columns: 1fr; }
       .nav-cta,
       .brand { min-width: auto; }
@@ -461,11 +464,6 @@
               <div class="pill" role="listitem"><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M20 7L10 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Sicher &amp; skalierbar</div>
             </div>
 
-            <div class="stats" aria-label="Kurzvorteile">
-              <div class="stat"><div class="k">Betrieb</div><div class="v">0% Server-Wartung</div></div>
-              <div class="stat"><div class="k">Verfügbarkeit</div><div class="v">24/7 Zugriff</div></div>
-              <div class="stat"><div class="k">Kosten</div><div class="v">Planbar pro Monat</div></div>
-            </div>
           </div>
 
           <div class="visual" aria-hidden="true">
@@ -475,6 +473,16 @@
             <div class="float-card c2"><div class="row"><div class="ic">⚡</div><div><h3>Immer aktuell</h3><p>Updates und Wartung automatisch – ohne Unterbruch im Betrieb.</p></div></div></div>
             <div class="float-card c3"><div class="row"><div class="ic">📈</div><div><h3>Skalierbar</h3><p>Wächst mit Ihrem Unternehmen – flexibel nach Bedarf erweiterbar.</p></div></div></div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section" aria-label="Kurzvorteile">
+      <div class="container">
+        <div class="stats">
+          <div class="stat"><div class="k">Betrieb</div><div class="v">0% Server-Wartung</div></div>
+          <div class="stat"><div class="k">Verfügbarkeit</div><div class="v">24/7 Zugriff</div></div>
+          <div class="stat"><div class="k">Kosten</div><div class="v">Planbar pro Monat</div></div>
         </div>
       </div>
     </section>
