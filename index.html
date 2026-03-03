@@ -97,26 +97,15 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.6rem;
-      font-size: 1rem;
-      color: var(--text);
       text-decoration: none;
-      letter-spacing: 0.02em;
-      font-weight: 700;
       min-width: 220px;
     }
 
-    .brand-mark {
-      width: 1.75rem;
-      height: 1.75rem;
-      border-radius: 0.55rem;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(150deg, rgba(25, 182, 255, 0.95), rgba(43, 92, 255, 0.85));
-      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
-      color: #fff;
-      font-size: 0.95rem;
-      line-height: 1;
+    .brand-logo {
+      display: block;
+      width: auto;
+      height: 34px;
+      max-width: min(320px, 100%);
     }
 
     nav ul {
@@ -782,8 +771,7 @@
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top" aria-label="highsystem Cloud Startseite">
-          <span class="brand-mark" aria-hidden="true">h</span>
-          <span>highsystem <span aria-hidden="true">|</span> Cloud</span>
+          <img class="brand-logo" src="Bilder/hsC_negativ_blau_transparent.png" alt="highsystem Cloud" />
         </a>
 
         <nav aria-label="Hauptnavigation">
