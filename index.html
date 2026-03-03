@@ -554,7 +554,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: clamp(48px, 9vw, 76px);
+      padding: clamp(18px, 6vw, 76px);
     }
 
     .product-circle::before,
@@ -580,7 +580,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: clamp(150px, 22%, 210px);
+      width: clamp(92px, 22vw, 210px);
       aspect-ratio: 1;
       z-index: 1;
       pointer-events: none;
@@ -598,9 +598,9 @@
       top: var(--top);
       left: var(--left);
       transform: translate(-50%, -50%);
-      width: clamp(120px, 15vw, 150px);
-      min-height: clamp(120px, 15vw, 150px);
-      border-radius: 18px;
+      width: clamp(58px, 14vw, 150px);
+      min-height: clamp(58px, 14vw, 150px);
+      border-radius: clamp(10px, 2vw, 18px);
       border: 1px solid rgba(255, 255, 255, 0.14);
       background: rgba(10, 22, 43, 0.9);
       color: var(--text);
@@ -608,11 +608,12 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 8px;
-      padding: 14px 10px;
+      gap: clamp(2px, 0.8vw, 6px);
+      padding: clamp(5px, 1.2vw, 12px) clamp(5px, 1.1vw, 9px);
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
       z-index: 2;
+      overflow: hidden;
     }
 
     .product-node:hover,
@@ -625,16 +626,18 @@
     }
 
     .infobox__icon {
-      font-size: 1.5rem;
+      font-size: clamp(0.9rem, 2.6vw, 1.5rem);
       line-height: 1;
       margin: 0;
     }
 
     .infobox__title {
       margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.25;
+      font-size: clamp(0.52rem, 1.25vw, 0.82rem);
+      line-height: 1.15;
       text-align: center;
+      max-width: 100%;
+      overflow-wrap: anywhere;
     }
 
     .product-details {
@@ -741,8 +744,8 @@
       .products-banner__inner { border-radius: 18px; }
       .splash { inset: -68px -120px auto -90px; height: 220px; }
       .drop.d4, .drop.d6 { display: none; }
-      .product-circle { width: min(680px, 100%); padding: 38px; }
-      .product-node { width: 112px; min-height: 112px; }
+      .product-circle { width: min(680px, 100%); padding: clamp(14px, 5vw, 38px); }
+      .product-node { width: clamp(56px, 16vw, 112px); min-height: clamp(56px, 16vw, 112px); }
       .product-details { min-height: auto; }
       .nav-cta,
       .brand { min-width: auto; }
