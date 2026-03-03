@@ -164,6 +164,30 @@
       margin-bottom: 24px;
     }
 
+    .hero-content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(200px, 280px);
+      gap: clamp(20px, 3vw, 44px);
+      align-items: end;
+      margin-top: clamp(8px, 1.5vw, 16px);
+    }
+
+    .hero-logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: clamp(180px, 22vw, 260px);
+      aspect-ratio: 1 / 1;
+      margin-top: clamp(26px, 5vw, 74px);
+      justify-self: end;
+    }
+
+    .hero-logo-box svg {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.35));
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -281,6 +305,15 @@
 
       .nav-cta,
       .brand { min-width: auto; }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-logo-box {
+        justify-self: center;
+        margin-top: 12px;
+      }
     }
   </style>
 </head>
@@ -317,9 +350,54 @@
       <section class="hero" aria-label="highsystem Cloud">
         <p class="eyebrow">highsystem | Cloud</p>
         <h1>Unsere Lösung – jetzt auch aus der Cloud</h1>
-        <p class="lead">Mit highsystem | Cloud bringt die highsystem ag ihre bewährte Client- und Lifecycle-Management-Plattform in eine moderne, zukunftssichere Cloud-Umgebung. Damit ermöglichen wir unseren Kunden, die Vorteile von highsystemNET flexibel, skalierbar und ortsunabhängig zu nutzen – ohne aufwendige eigene Infrastruktur.</p>
-        <p class="lead" style="margin-top: 16px;">Die Cloud-Variante verbindet unsere langjährige Erfahrung im IT-Management mit den Anforderungen moderner Unternehmen: schnelle Bereitstellung, hohe Verfügbarkeit, maximale Sicherheit und transparente Betriebskosten.</p>
-        <p class="lead" style="margin-top: 16px;">So schaffen wir eine IT-Plattform, die nicht nur heute überzeugt, sondern auch morgen mit Ihren Anforderungen wächst.</p>
+        <div class="hero-content">
+          <div>
+            <p class="lead">Mit highsystem | Cloud bringt die highsystem ag ihre bewährte Client- und Lifecycle-Management-Plattform in eine moderne, zukunftssichere Cloud-Umgebung. Damit ermöglichen wir unseren Kunden, die Vorteile von highsystemNET flexibel, skalierbar und ortsunabhängig zu nutzen – ohne aufwendige eigene Infrastruktur.</p>
+            <p class="lead" style="margin-top: 16px;">Die Cloud-Variante verbindet unsere langjährige Erfahrung im IT-Management mit den Anforderungen moderner Unternehmen: schnelle Bereitstellung, hohe Verfügbarkeit, maximale Sicherheit und transparente Betriebskosten.</p>
+            <p class="lead" style="margin-top: 16px;">So schaffen wir eine IT-Plattform, die nicht nur heute überzeugt, sondern auch morgen mit Ihren Anforderungen wächst.</p>
+          </div>
+          <div class="hero-logo-box" aria-label="Produkt-Icon highsystem Cloud">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" role="img" aria-label="highsystem Produkt-Icon">
+              <defs>
+                <linearGradient id="aboutMetalBlue" x1="10%" y1="10%" x2="90%" y2="90%">
+                  <stop offset="0%" stop-color="#3f71d9"/>
+                  <stop offset="45%" stop-color="#214ca8"/>
+                  <stop offset="70%" stop-color="#17377c"/>
+                  <stop offset="100%" stop-color="#10244f"/>
+                </linearGradient>
+                <radialGradient id="aboutOuterRimGlow" cx="35%" cy="30%" r="85%">
+                  <stop offset="70%" stop-color="#ffffff" stop-opacity="0"/>
+                  <stop offset="90%" stop-color="#5cd2ff" stop-opacity="0.24"/>
+                  <stop offset="100%" stop-color="#9be7ff" stop-opacity="0.34"/>
+                </radialGradient>
+                <radialGradient id="aboutOuterRimShade" cx="75%" cy="85%" r="90%">
+                  <stop offset="72%" stop-color="#000000" stop-opacity="0"/>
+                  <stop offset="92%" stop-color="#000000" stop-opacity="0.14"/>
+                  <stop offset="100%" stop-color="#000000" stop-opacity="0.22"/>
+                </radialGradient>
+                <mask id="aboutOuterBandMask">
+                  <rect width="100%" height="100%" fill="black"/>
+                  <circle cx="700" cy="700" r="588" fill="white"/>
+                  <circle cx="700" cy="700" r="560" fill="black"/>
+                </mask>
+                <linearGradient id="aboutTriSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#ffffff" stop-opacity="0.11"/>
+                  <stop offset="35%" stop-color="#ffffff" stop-opacity="0"/>
+                  <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <circle cx="700" cy="700" r="600" fill="#030812"/>
+              <circle cx="700" cy="700" r="588" fill="url(#aboutMetalBlue)"/>
+              <circle cx="700" cy="700" r="588" fill="url(#aboutOuterRimGlow)" mask="url(#aboutOuterBandMask)"/>
+              <circle cx="700" cy="700" r="588" fill="url(#aboutOuterRimShade)" mask="url(#aboutOuterBandMask)"/>
+              <circle cx="700" cy="700" r="420" fill="#050d1d"/>
+              <circle cx="700" cy="700" r="408" fill="#d9e8ff"/>
+              <polygon points="433.02,433.02 966.98,433.02 433.02,966.98" fill="#050d1d"/>
+              <polygon points="445.02,445.02 938.01,445.02 445.02,938.01" fill="url(#aboutMetalBlue)"/>
+              <polygon points="445.02,445.02 938.01,445.02 445.02,938.01" fill="url(#aboutTriSheen)"/>
+            </svg>
+          </div>
+        </div>
       </section>
 
       <section class="sections" aria-label="Über uns Inhalte">
