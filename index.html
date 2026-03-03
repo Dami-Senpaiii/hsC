@@ -552,7 +552,7 @@
     }
 
     .product-circle {
-      width: min(580px, 100%);
+      width: min(780px, 100%);
       aspect-ratio: 1;
       border-radius: 50%;
       position: relative;
@@ -565,7 +565,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: clamp(36px, 8vw, 60px);
+      padding: clamp(48px, 9vw, 76px);
     }
 
     .product-circle::before,
@@ -586,22 +586,44 @@
       border: 1px dashed rgba(25, 182, 255, 0.3);
     }
 
+    .center-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: clamp(150px, 22%, 210px);
+      aspect-ratio: 1;
+      z-index: 1;
+      pointer-events: none;
+      filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.45));
+    }
+
+    .center-logo svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
     .product-node {
       position: absolute;
       top: var(--top);
       left: var(--left);
       transform: translate(-50%, -50%);
-      width: clamp(84px, 12vw, 106px);
-      min-height: clamp(84px, 12vw, 106px);
+      width: clamp(120px, 15vw, 150px);
+      min-height: clamp(120px, 15vw, 150px);
       border-radius: 18px;
       border: 1px solid rgba(255, 255, 255, 0.14);
       background: rgba(10, 22, 43, 0.9);
       color: var(--text);
-      display: grid;
-      place-items: center;
-      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 10px;
       cursor: pointer;
       transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      z-index: 2;
     }
 
     .product-node:hover,
@@ -614,15 +636,15 @@
     }
 
     .infobox__icon {
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       line-height: 1;
-      margin-bottom: 6px;
+      margin: 0;
     }
 
     .infobox__title {
       margin: 0;
-      font-size: 0.78rem;
-      line-height: 1.2;
+      font-size: 0.9rem;
+      line-height: 1.25;
       text-align: center;
     }
 
@@ -730,8 +752,8 @@
       .products-banner__inner { border-radius: 18px; }
       .splash { inset: -68px -120px auto -90px; height: 220px; }
       .drop.d4, .drop.d6 { display: none; }
-      .product-circle { padding: 36px; }
-      .product-node { width: 88px; min-height: 88px; }
+      .product-circle { width: min(680px, 100%); padding: 38px; }
+      .product-node { width: 112px; min-height: 112px; }
       .product-details { min-height: auto; }
       .nav-cta,
       .brand { min-width: auto; }
@@ -846,39 +868,80 @@
         </section>
         <div class="products-grid">
           <div class="product-circle" id="product-circle" role="list" aria-label="Produkte Auswahl">
-            <button class="product-node is-active" type="button" role="listitem" style="--top: 8%; --left: 50%;" data-icon="💼" data-title="Assetmanagement" data-text="Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus." aria-controls="product-details" aria-expanded="true">
+            <div class="center-logo" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" role="img" aria-label="highsystem center logo">
+                <defs>
+                  <linearGradient id="metalBlue" x1="10%" y1="10%" x2="90%" y2="90%">
+                    <stop offset="0%" stop-color="#3f71d9"/>
+                    <stop offset="45%" stop-color="#214ca8"/>
+                    <stop offset="70%" stop-color="#17377c"/>
+                    <stop offset="100%" stop-color="#10244f"/>
+                  </linearGradient>
+                  <radialGradient id="outerRimGlow" cx="35%" cy="30%" r="85%">
+                    <stop offset="70%" stop-color="#ffffff" stop-opacity="0"/>
+                    <stop offset="90%" stop-color="#5cd2ff" stop-opacity="0.24"/>
+                    <stop offset="100%" stop-color="#9be7ff" stop-opacity="0.34"/>
+                  </radialGradient>
+                  <radialGradient id="outerRimShade" cx="75%" cy="85%" r="90%">
+                    <stop offset="72%" stop-color="#000000" stop-opacity="0"/>
+                    <stop offset="92%" stop-color="#000000" stop-opacity="0.14"/>
+                    <stop offset="100%" stop-color="#000000" stop-opacity="0.22"/>
+                  </radialGradient>
+                  <mask id="outerBandMask">
+                    <rect width="100%" height="100%" fill="black"/>
+                    <circle cx="700" cy="700" r="588" fill="white"/>
+                    <circle cx="700" cy="700" r="560" fill="black"/>
+                  </mask>
+                  <linearGradient id="triSheen" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.11"/>
+                    <stop offset="35%" stop-color="#ffffff" stop-opacity="0"/>
+                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="700" cy="700" r="600" fill="#030812"/>
+                <circle cx="700" cy="700" r="588" fill="url(#metalBlue)"/>
+                <circle cx="700" cy="700" r="588" fill="url(#outerRimGlow)" mask="url(#outerBandMask)"/>
+                <circle cx="700" cy="700" r="588" fill="url(#outerRimShade)" mask="url(#outerBandMask)"/>
+                <circle cx="700" cy="700" r="420" fill="#050d1d"/>
+                <circle cx="700" cy="700" r="408" fill="#d9e8ff"/>
+                <polygon points="433.02,433.02 966.98,433.02 433.02,966.98" fill="#050d1d"/>
+                <polygon points="445.02,445.02 938.01,445.02 445.02,938.01" fill="url(#metalBlue)"/>
+                <polygon points="445.02,445.02 938.01,445.02 445.02,938.01" fill="url(#triSheen)"/>
+              </svg>
+            </div>
+            <button class="product-node is-active" type="button" role="listitem" style="--top: 9%; --left: 50%;" data-icon="💼" data-title="Assetmanagement" data-text="Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus." aria-controls="product-details" aria-expanded="true">
               <span class="infobox__icon" aria-hidden="true">💼</span>
               <span class="infobox__title">Assetmanagement</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 22%; --left: 80%;" data-icon="🎧" data-title="Helpdesk" data-text="Unterstützt Anwender mit Ticketing, SLA-Tracking und schnellem Ticket-Workflow." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 19%; --left: 76%;" data-icon="🎧" data-title="Helpdesk" data-text="Unterstützt Anwender mit Ticketing, SLA-Tracking und schnellem Ticket-Workflow." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true">🎧</span>
               <span class="infobox__title">Helpdesk</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 50%; --left: 90%;" data-icon="🖥️" data-title="Betriebssystem" data-text="Standardisierung, Verwaltung und Monitoring der eingesetzten Betriebssysteme." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 43%; --left: 90%;" data-icon="🖥️" data-title="Betriebssystem" data-text="Standardisierung, Verwaltung und Monitoring der eingesetzten Betriebssysteme." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true">🖥️</span>
               <span class="infobox__title">Betriebssystem</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 76%; --left: 77%;" data-icon="📦" data-title="Softwareverteilung" data-text="Automatische Auslieferung und Installation von Software im Netzwerk." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 71%; --left: 86%;" data-icon="📦" data-title="Softwareverteilung" data-text="Automatische Auslieferung und Installation von Software im Netzwerk." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true">📦</span>
               <span class="infobox__title">Softwareverteilung</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 91%; --left: 50%;" data-icon="🛠️" data-title="Software Package Builder" data-text="Werkzeug zum Erstellen, Testen und Verwalten von Softwarepaketen." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 89%; --left: 64%;" data-icon="🛠️" data-title="Software Package Builder" data-text="Werkzeug zum Erstellen, Testen und Verwalten von Softwarepaketen." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true">🛠️</span>
               <span class="infobox__title">Package Builder</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 76%; --left: 23%;" data-icon="🔁" data-title="Software Paket Service" data-text="Bereitstellung, Aktualisierung und Lifecycle-Verwaltung von Paketen." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 89%; --left: 36%;" data-icon="🔁" data-title="Software Paket Service" data-text="Bereitstellung, Aktualisierung und Lifecycle-Verwaltung von Paketen." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true">🔁</span>
               <span class="infobox__title">Paket Service</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 50%; --left: 10%;" data-icon="🧾" data-title="Lizenzmanagement" data-text="Übersicht, Compliance und Verwaltung aller Softwarelizenzen." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 71%; --left: 14%;" data-icon="🧾" data-title="Lizenzmanagement" data-text="Übersicht, Compliance und Verwaltung aller Softwarelizenzen." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true">🧾</span>
               <span class="infobox__title">Lizenzmanagement</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 22%; --left: 20%;" data-icon="🔒" data-title="Patchmanagement" data-text="Automatische Erkennung und Verteilung sicherheitsrelevanter Updates." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 43%; --left: 10%;" data-icon="🔒" data-title="Patchmanagement" data-text="Automatische Erkennung und Verteilung sicherheitsrelevanter Updates." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true">🔒</span>
               <span class="infobox__title">Patchmanagement</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 37%; --left: 50%;" data-icon="🛡️" data-title="Security Center" data-text="Zentrale Sicherheitsübersicht inklusive Alarmierung und Richtlinien." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 19%; --left: 24%;" data-icon="🛡️" data-title="Security Center" data-text="Zentrale Sicherheitsübersicht inklusive Alarmierung und Richtlinien." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true">🛡️</span>
               <span class="infobox__title">Security Center</span>
             </button>
