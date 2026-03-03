@@ -197,15 +197,42 @@
     }
 
     .sections {
-      display: grid;
-      gap: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 36px;
     }
 
     .section-card {
+      position: relative;
+      width: fit-content;
+      max-width: min(92vw, 86ch);
       border-radius: var(--radius);
       padding: clamp(22px, 3.5vw, 32px);
       background: var(--glass);
       border: 1px solid var(--line);
+    }
+
+    .section-card:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(100% + 8px);
+      width: 2px;
+      height: 20px;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .section-card:not(:last-child)::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: calc(100% + 28px);
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 9px solid rgba(255, 255, 255, 0.9);
     }
 
     h2 {
