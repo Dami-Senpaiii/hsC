@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Über uns | highsystem | Cloud</title>
+  <meta name="description" content="Erfahren Sie mehr über highsystem ag, unsere Mission, Werte und unser Engagement." />
+  <style>
+    :root {
+      --bg0: #040812;
+      --bg1: #071428;
+      --bg2: #0a1f3a;
+      --text: #eaf1ff;
+      --muted: rgba(234, 241, 255, 0.78);
+      --line: rgba(234, 241, 255, 0.12);
+      --glass: rgba(255, 255, 255, 0.06);
+      --accent: #19b6ff;
+      --accent2: #2b5cff;
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 20%, rgba(25, 182, 255, 0.12), transparent 60%),
+        radial-gradient(1000px 600px at 70% 30%, rgba(43, 92, 255, 0.14), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 45%, var(--bg2));
+      overflow-x: hidden;
+    }
+
+    .pattern {
+      position: fixed;
+      inset: -2px;
+      pointer-events: none;
+      opacity: 0.35;
+      background:
+        radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 22px 22px,
+        radial-gradient(circle at 1px 1px, rgba(25, 182, 255, 0.08) 1px, transparent 1px) 11px 11px / 44px 44px;
+      mask-image: radial-gradient(700px 500px at 25% 30%, black 55%, transparent 100%);
+      filter: blur(0.1px);
+      z-index: 1;
+    }
+
+    .container {
+      width: min(1160px, 92vw);
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(4, 8, 18, 0.72), rgba(4, 8, 18, 0.25));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+      min-width: 220px;
+    }
+
+    .brand-logo {
+      display: block;
+      width: auto;
+      height: 34px;
+      max-width: min(320px, 100%);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a {
+      color: rgba(234, 241, 255, 0.78);
+      text-decoration: none;
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      padding: 8px 6px;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a:focus-visible,
+    nav a[aria-current="page"] {
+      color: var(--text);
+      border-bottom-color: rgba(25, 182, 255, 0.65);
+      outline: none;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      justify-content: flex-end;
+    }
+
+    .btn {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      outline: none;
+    }
+
+    .btn.primary {
+      border-color: rgba(25, 182, 255, 0.45);
+      background: linear-gradient(180deg, rgba(25, 182, 255, 0.22), rgba(25, 182, 255, 0.08));
+      box-shadow: 0 18px 40px rgba(25, 182, 255, 0.14);
+    }
+
+    main {
+      padding: clamp(42px, 6vw, 84px) 0 clamp(56px, 8vw, 100px);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero {
+      border-radius: 24px;
+      padding: clamp(26px, 5vw, 56px);
+      border: 1px solid var(--line);
+      background: linear-gradient(150deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+      margin-bottom: 24px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(234, 241, 255, 0.7);
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: fit-content;
+      margin: 0;
+    }
+
+    h1 {
+      margin: 20px 0 18px;
+      font-weight: 650;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      font-size: clamp(34px, 4.6vw, 56px);
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.65;
+      max-width: 68ch;
+      margin: 0;
+    }
+
+    .sections {
+      display: grid;
+      gap: 16px;
+    }
+
+    .section-card {
+      border-radius: var(--radius);
+      padding: clamp(22px, 3.5vw, 32px);
+      background: var(--glass);
+      border: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.01em;
+    }
+
+    p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 80ch;
+    }
+
+    .values {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .values strong { color: var(--text); }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px 0 34px;
+      color: rgba(234, 241, 255, 0.6);
+      font-size: 13px;
+      position: relative;
+      z-index: 2;
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-cta,
+      .brand { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="pattern" aria-hidden="true"></div>
+
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html#top" aria-label="highsystem Cloud Startseite">
+          <img class="brand-logo" src="Bilder/hsC_negativ_blau_transparent.png" alt="highsystem Cloud" />
+        </a>
+
+        <nav aria-label="Hauptnavigation">
+          <ul>
+            <li><a href="index.html#produkt">Produkt</a></li>
+            <li><a href="index.html#sicherheit">Sicherheit</a></li>
+            <li><a href="index.html#preise">Preise</a></li>
+            <li><a href="ueber-uns.html" aria-current="page">Über uns</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn" href="index.html#login">Login</a>
+          <a class="btn primary" href="index.html#demo">Demo</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero" aria-label="highsystem Cloud">
+        <p class="eyebrow">highsystem | Cloud</p>
+        <h1>Unsere Lösung – jetzt auch aus der Cloud</h1>
+        <p class="lead">Mit highsystem | Cloud bringt die highsystem ag ihre bewährte Client- und Lifecycle-Management-Plattform in eine moderne, zukunftssichere Cloud-Umgebung. Damit ermöglichen wir unseren Kunden, die Vorteile von highsystemNET flexibel, skalierbar und ortsunabhängig zu nutzen – ohne aufwendige eigene Infrastruktur.</p>
+        <p class="lead" style="margin-top: 16px;">Die Cloud-Variante verbindet unsere langjährige Erfahrung im IT-Management mit den Anforderungen moderner Unternehmen: schnelle Bereitstellung, hohe Verfügbarkeit, maximale Sicherheit und transparente Betriebskosten.</p>
+        <p class="lead" style="margin-top: 16px;">So schaffen wir eine IT-Plattform, die nicht nur heute überzeugt, sondern auch morgen mit Ihren Anforderungen wächst.</p>
+      </section>
+
+      <section class="sections" aria-label="Über uns Inhalte">
+        <article class="section-card">
+          <h2>Wer wir sind</h2>
+          <p>Die highsystem ag ist ein schweizerisches Software- und IT-Unternehmen mit Sitz in Wallisellen. Seit über 30 Jahren entwickeln und vertreiben wir mit highsystemNET leistungsstarke Lösungen für das Lifecycle- und Client-Management, damit Unternehmen ihre IT effizient, sicher und nachhaltig steuern können.</p>
+        </article>
+
+        <article class="section-card">
+          <h2>Unsere Mission</h2>
+          <p>Unsere Mission ist klar: Wir begleiten unsere Kunden fair, kompetent, zuvorkommend und ergebnisorientiert - mit transparenter Kommunikation, zuverlässigen Zusagen und nachhaltigen IT-Lösungen.</p>
+        </article>
+
+        <article class="section-card">
+          <h2>Was wir tun</h2>
+          <p>Mit unserer langjährigen Erfahrung unterstützen wir Organisationen dabei, ihre IT-Landschaften effektiv zu verwalten – von Software- und Betriebssystemverteilung über Helpdesk-Services bis hin zu Asset- und Infrastrukturmanagement. Unsere Lösungen sind praxisnah, modular und speziell auf die Bedürfnisse mittlerer und grosser Unternehmen ausgerichtet.</p>
+        </article>
+
+        <article class="section-card">
+          <h2>Unsere Werte</h2>
+          <ul class="values">
+            <li><strong>Partnerschaftlichkeit:</strong> Wir pflegen langfristige Kundenbeziehungen.</li>
+            <li><strong>Qualität:</strong> Wir liefern zuverlässige, robuste Software und Services.</li>
+            <li><strong>Verantwortung:</strong> Wir handeln stets lösungsorientiert und mit Blick auf nachhaltigen Kundennutzen.</li>
+            <li><strong>Weiterentwicklung:</strong> Wir nutzen Feedback als Chance und fördern kontinuierliches Lernen – intern wie extern.</li>
+          </ul>
+        </article>
+
+        <article class="section-card">
+          <h2>Unser Engagement</h2>
+          <p>Wir legen grossen Wert auf die Ausbildung junger Talente und gestalten aktiv die Zukunft der IT-Branche mit – sowohl durch technologische Innovation als auch durch Wissensaustausch.</p>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year">2026</span> highsystem | Cloud — Erste Version der Startseite.</div>
+  </footer>
+</body>
+</html>
