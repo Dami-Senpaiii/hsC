@@ -390,6 +390,20 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       padding: 18px;
       min-height: 104px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .stat-text {
+      min-width: 0;
+    }
+
+    .stat-icon {
+      width: clamp(42px, 4.2vw, 58px);
+      height: auto;
+      flex: 0 0 auto;
     }
 
     .stat .k {
@@ -832,9 +846,60 @@
     <section class="stats-section" aria-label="Kurzvorteile">
       <div class="container">
         <div class="stats">
-          <div class="stat"><div class="k">Betrieb</div><div class="v">0% Server-Wartung</div></div>
-          <div class="stat"><div class="k">Verfügbarkeit</div><div class="v">24/7 Zugriff</div></div>
-          <div class="stat"><div class="k">Kosten</div><div class="v">Planbar pro Monat</div></div>
+          <div class="stat">
+            <div class="stat-text">
+              <div class="k">Betrieb</div>
+              <div class="v">0% Server-Wartung</div>
+            </div>
+            <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Server deaktiviert" role="img">
+              <g fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="3" width="16" height="5" rx="1.5"/>
+                <rect x="4" y="10" width="16" height="5" rx="1.5"/>
+                <rect x="4" y="17" width="16" height="5" rx="1.5"/>
+                <path d="M7 5.5h.01M7 12.5h.01M7 19.5h.01"/>
+                <path d="M10 5.5h7M10 12.5h7M10 19.5h7"/>
+                <line x1="3" y1="3" x2="21" y2="21"/>
+              </g>
+            </svg>
+          </div>
+          <div class="stat">
+            <div class="stat-text">
+              <div class="k">Verfügbarkeit</div>
+              <div class="v">24/7 Zugriff</div>
+            </div>
+            <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="24 Stunden">
+              <g fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M32 52 A20 20 0 1 1 52 32" />
+                <polyline points="48,28 52,32 56,28" />
+                <line x1="32" y1="32" x2="24" y2="24"/>
+                <line x1="32" y1="32" x2="42" y2="32"/>
+                <circle cx="32" cy="32" r="2.5" fill="white" stroke="none"/>
+              </g>
+              <text x="41" y="51" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">24</text>
+            </svg>
+          </div>
+          <div class="stat">
+            <div class="stat-text">
+              <div class="k">Kosten</div>
+              <div class="v">Planbar pro Monat</div>
+            </div>
+            <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Kalender">
+              <g fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="10" y="14" width="44" height="40" rx="6"/>
+                <line x1="10" y1="24" x2="54" y2="24"/>
+                <line x1="22" y1="10" x2="22" y2="18"/>
+                <line x1="42" y1="10" x2="42" y2="18"/>
+              </g>
+              <g fill="white">
+                <rect x="20" y="31" width="4" height="4" rx="1"/>
+                <rect x="30" y="31" width="4" height="4" rx="1"/>
+                <rect x="40" y="31" width="4" height="4" rx="1"/>
+                <rect x="20" y="41" width="4" height="4" rx="1"/>
+                <rect x="30" y="41" width="4" height="4" rx="1"/>
+                <rect x="40" y="41" width="4" height="4" rx="1"/>
+              </g>
+            </svg>
+          </div>
         </div>
       </div>
     </section>
