@@ -640,9 +640,22 @@
     }
 
     .infobox__icon {
-      font-size: clamp(0.9rem, 2.6vw, 1.5rem);
-      line-height: 1;
+      width: clamp(22px, 3.2vw, 34px);
+      height: clamp(22px, 3.2vw, 34px);
       margin: 0;
+      color: #8bd4ff;
+      display: inline-grid;
+      place-items: center;
+    }
+
+    .infobox__icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .infobox__title {
@@ -673,6 +686,11 @@
       background: rgba(25, 182, 255, 0.12);
       border: 1px solid rgba(25, 182, 255, 0.28);
       margin-bottom: 12px;
+    }
+
+    .product-details .infobox__icon svg {
+      width: 31px;
+      height: 31px;
     }
 
     .product-details .infobox__title {
@@ -966,46 +984,46 @@
                 <polygon points="445.02,445.02 938.01,445.02 445.02,938.01" fill="url(#triSheen)"/>
               </svg>
             </div>
-            <button class="product-node is-active" type="button" role="listitem" style="--top: 9%; --left: 50%;" data-icon="💼" data-title="Assetmanagement" data-text="Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus." aria-controls="product-details" aria-expanded="true">
-              <span class="infobox__icon" aria-hidden="true">💼</span>
+            <button class="product-node is-active" type="button" role="listitem" style="--top: 9%; --left: 50%;" data-icon="asset" data-title="Assetmanagement" data-text="Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus." aria-controls="product-details" aria-expanded="true">
+              <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Assetmanagement</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 19%; --left: 76%;" data-icon="🎧" data-title="Helpdesk" data-text="Unterstützt Anwender mit Ticketing, SLA-Tracking und schnellem Ticket-Workflow." aria-controls="product-details" aria-expanded="false">
-              <span class="infobox__icon" aria-hidden="true">🎧</span>
+            <button class="product-node" type="button" role="listitem" style="--top: 19%; --left: 76%;" data-icon="helpdesk" data-title="Helpdesk" data-text="Unterstützt Anwender mit Ticketing, SLA-Tracking und schnellem Ticket-Workflow." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Helpdesk</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 43%; --left: 90%;" data-icon="🖥️" data-title="Betriebssystem" data-text="Standardisierung, Verwaltung und Monitoring der eingesetzten Betriebssysteme." aria-controls="product-details" aria-expanded="false">
-              <span class="infobox__icon" aria-hidden="true">🖥️</span>
+            <button class="product-node" type="button" role="listitem" style="--top: 43%; --left: 90%;" data-icon="os" data-title="Betriebssystem" data-text="Standardisierung, Verwaltung und Monitoring der eingesetzten Betriebssysteme." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Betriebssystem</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 71%; --left: 86%;" data-icon="📦" data-title="Softwareverteilung" data-text="Automatische Auslieferung und Installation von Software im Netzwerk." aria-controls="product-details" aria-expanded="false">
-              <span class="infobox__icon" aria-hidden="true">📦</span>
+            <button class="product-node" type="button" role="listitem" style="--top: 71%; --left: 86%;" data-icon="distribution" data-title="Softwareverteilung" data-text="Automatische Auslieferung und Installation von Software im Netzwerk." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Softwareverteilung</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 89%; --left: 64%;" data-icon="🛠️" data-title="Software Package Builder" data-text="Werkzeug zum Erstellen, Testen und Verwalten von Softwarepaketen." aria-controls="product-details" aria-expanded="false">
-              <span class="infobox__icon" aria-hidden="true">🛠️</span>
+            <button class="product-node" type="button" role="listitem" style="--top: 89%; --left: 64%;" data-icon="builder" data-title="Software Package Builder" data-text="Werkzeug zum Erstellen, Testen und Verwalten von Softwarepaketen." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Package Builder</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 89%; --left: 36%;" data-icon="🔁" data-title="Software Paket Service" data-text="Bereitstellung, Aktualisierung und Lifecycle-Verwaltung von Paketen." aria-controls="product-details" aria-expanded="false">
-              <span class="infobox__icon" aria-hidden="true">🔁</span>
+            <button class="product-node" type="button" role="listitem" style="--top: 89%; --left: 36%;" data-icon="service" data-title="Software Paket Service" data-text="Bereitstellung, Aktualisierung und Lifecycle-Verwaltung von Paketen." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Paket Service</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 71%; --left: 14%;" data-icon="🧾" data-title="Lizenzmanagement" data-text="Übersicht, Compliance und Verwaltung aller Softwarelizenzen." aria-controls="product-details" aria-expanded="false">
-              <span class="infobox__icon" aria-hidden="true">🧾</span>
+            <button class="product-node" type="button" role="listitem" style="--top: 71%; --left: 14%;" data-icon="license" data-title="Lizenzmanagement" data-text="Übersicht, Compliance und Verwaltung aller Softwarelizenzen." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Lizenzmanagement</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 43%; --left: 10%;" data-icon="🔒" data-title="Patchmanagement" data-text="Automatische Erkennung und Verteilung sicherheitsrelevanter Updates." aria-controls="product-details" aria-expanded="false">
-              <span class="infobox__icon" aria-hidden="true">🔒</span>
+            <button class="product-node" type="button" role="listitem" style="--top: 43%; --left: 10%;" data-icon="patch" data-title="Patchmanagement" data-text="Automatische Erkennung und Verteilung sicherheitsrelevanter Updates." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Patchmanagement</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 19%; --left: 24%;" data-icon="🛡️" data-title="Security Center" data-text="Zentrale Sicherheitsübersicht inklusive Alarmierung und Richtlinien." aria-controls="product-details" aria-expanded="false">
-              <span class="infobox__icon" aria-hidden="true">🛡️</span>
+            <button class="product-node" type="button" role="listitem" style="--top: 19%; --left: 24%;" data-icon="security" data-title="Security Center" data-text="Zentrale Sicherheitsübersicht inklusive Alarmierung und Richtlinien." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Security Center</span>
             </button>
           </div>
 
           <div class="product-details" id="product-details" aria-live="polite">
-            <div class="infobox__icon" id="product-detail-icon" aria-hidden="true">💼</div>
+            <div class="infobox__icon" id="product-detail-icon" aria-hidden="true"></div>
             <h3 class="infobox__title" id="product-detail-title">Assetmanagement</h3>
             <p class="infobox__text" id="product-detail-text">Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus.</p>
           </div>
@@ -1024,10 +1042,31 @@
     <div class="container">© <span id="year">2026</span> highsystem | Cloud — Erste Version der Startseite.</div>
   </footer>
   <script>
+    const iconSvgs = {
+      asset: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="7" width="17" height="12" rx="2"></rect><path d="M9 7V5.5h6V7"></path><path d="M3.5 12h17"></path></svg>',
+      helpdesk: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 1 16 0"></path><path d="M4 12v3a2 2 0 0 0 2 2h2v-5H6a2 2 0 0 0-2 2"></path><path d="M20 12v3a2 2 0 0 1-2 2h-2v-5h2a2 2 0 0 1 2 2"></path><path d="M10 19h4"></path></svg>',
+      os: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4" width="17" height="12" rx="1.8"></rect><path d="M8.5 20h7"></path><path d="M12 16v4"></path></svg>',
+      distribution: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.8 20 8v8l-8 4.2L4 16V8z"></path><path d="M12 8v12"></path><path d="m4 8 8 4 8-4"></path></svg>',
+      builder: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6 4-4 4 4-4 4z"></path><path d="M12.6 7.4 5 15l-1 5 5-1 7.6-7.6"></path></svg>',
+      service: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a8 8 0 0 0-14-2"></path><path d="M4 8V4h4"></path><path d="M4 16a8 8 0 0 0 14 2"></path><path d="M20 16v4h-4"></path></svg>',
+      license: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"></rect><path d="M9 8h6"></path><path d="M9 12h6"></path><path d="M9 16h4"></path></svg>',
+      patch: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 14.5 5-5"></path><circle cx="7" cy="17" r="2.5"></circle><circle cx="17" cy="7" r="2.5"></circle><path d="M5 5l14 14"></path></svg>',
+      security: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 19 6v5.5c0 4.1-2.6 7.8-7 9-4.4-1.2-7-4.9-7-9V6z"></path><path d="m9.2 12.2 2 2 3.6-3.6"></path></svg>'
+    };
+
+    const iconMarkup = (key) => iconSvgs[key] || iconSvgs.asset;
+
     const productNodes = document.querySelectorAll('.product-node');
     const detailIcon = document.getElementById('product-detail-icon');
     const detailTitle = document.getElementById('product-detail-title');
     const detailText = document.getElementById('product-detail-text');
+
+    productNodes.forEach((node) => {
+      const nodeIcon = node.querySelector('.infobox__icon');
+      if (nodeIcon) nodeIcon.innerHTML = iconMarkup(node.dataset.icon);
+    });
+
+    detailIcon.innerHTML = iconMarkup(productNodes[0]?.dataset.icon || 'asset');
 
     productNodes.forEach((node) => {
       node.addEventListener('click', () => {
@@ -1039,7 +1078,7 @@
         node.classList.add('is-active');
         node.setAttribute('aria-expanded', 'true');
 
-        detailIcon.textContent = node.dataset.icon;
+        detailIcon.innerHTML = iconMarkup(node.dataset.icon);
         detailTitle.textContent = node.dataset.title;
         detailText.textContent = node.dataset.text;
       });
