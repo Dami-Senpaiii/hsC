@@ -93,6 +93,48 @@
       margin: 0;
     }
 
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-dropdown {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      min-width: 300px;
+      padding: 10px;
+      margin: 0;
+      list-style: none;
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(6, 16, 34, 0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35);
+      z-index: 20;
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 9px 10px;
+      font-size: 13px;
+      border-radius: 8px;
+      border-bottom: none;
+    }
+
+    .nav-dropdown a:hover,
+    .nav-dropdown a:focus-visible {
+      background: rgba(255, 255, 255, 0.08);
+      border-bottom-color: transparent;
+    }
+
+    .nav-item:hover .nav-dropdown,
+    .nav-item:focus-within .nav-dropdown {
+      display: flex;
+    }
+
     nav a {
       color: rgba(234, 241, 255, 0.78);
       text-decoration: none;
@@ -330,7 +372,14 @@
         <nav aria-label="Hauptnavigation">
           <ul>
             <li><a href="index.html#produkt">Produkt</a></li>
-            <li><a href="index.html#sicherheit">Sicherheit</a></li>
+            <li class="nav-item">
+              <a href="client-lifecyclemanagement.html">Produkte</a>
+              <ul class="nav-dropdown" aria-label="Produkte Untermenü">
+                <li><a href="client-lifecyclemanagement.html">Client- &amp; Lifecyclemanagement</a></li>
+                <li><a href="infrastruktur-assetmanagement.html">Infrastruktur- &amp; Assetmanagement</a></li>
+                <li><a href="it-servicemanagement.html">IT-Servicemanagement</a></li>
+              </ul>
+            </li>
             <li><a href="index.html#preise">Preise</a></li>
             <li><a href="ueber-uns.html" aria-current="page">Über uns</a></li>
             <li><a href="index.html#kontakt">Kontakt</a></li>

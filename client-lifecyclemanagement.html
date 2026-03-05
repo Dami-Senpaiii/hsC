@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client- &amp; Lifecyclemanagement | highsystem | Cloud</title>
+  <meta name="description" content="Client- & Lifecyclemanagement: automatisierte Bereitstellung, standardisierte Softwareverteilung und kontrollierte Lifecycle-Prozesse." />
+  <style>
+    :root {
+      --bg0: #040812;
+      --bg1: #071428;
+      --bg2: #0a1f3a;
+      --text: #eaf1ff;
+      --muted: rgba(234, 241, 255, 0.78);
+      --line: rgba(234, 241, 255, 0.12);
+      --glass: rgba(255, 255, 255, 0.06);
+      --accent: #19b6ff;
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 700px at 20% 20%, rgba(25, 182, 255, 0.12), transparent 60%),
+        radial-gradient(1000px 600px at 70% 30%, rgba(43, 92, 255, 0.14), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 45%, var(--bg2));
+    }
+    .container { width: min(1160px, 92vw); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(4, 8, 18, 0.72), rgba(4, 8, 18, 0.25));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 0; }
+    .brand-logo { height: 34px; }
+    nav ul { list-style: none; display: flex; gap: 22px; padding: 0; margin: 0; }
+    .nav-item { position: relative; }
+    .nav-dropdown {
+      position: absolute; top: calc(100% + 8px); left: 0; min-width: 300px;
+      padding: 10px; margin: 0; list-style: none; display: none; flex-direction: column; gap: 6px;
+      border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.15); background: rgba(6, 16, 34, 0.96);
+    }
+    .nav-dropdown a { display: block; padding: 9px 10px; font-size: 13px; border-radius: 8px; border-bottom: none; }
+    .nav-dropdown a:hover, .nav-dropdown a:focus-visible { background: rgba(255, 255, 255, 0.08); }
+    .nav-item:hover .nav-dropdown, .nav-item:focus-within .nav-dropdown { display: flex; }
+    nav a {
+      color: rgba(234, 241, 255, 0.78); text-decoration: none; font-size: 14px; letter-spacing: 0.2px;
+      padding: 8px 6px; border-bottom: 1px solid transparent;
+    }
+    nav a:hover, nav a:focus-visible, nav a[aria-current="page"] { color: var(--text); border-bottom-color: rgba(25, 182, 255, 0.65); }
+    .nav-cta { display: flex; gap: 10px; }
+    .btn { border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.05); color: var(--text); padding: 10px 14px; border-radius: 999px; text-decoration: none; }
+    .btn.primary { border-color: rgba(25, 182, 255, 0.45); background: linear-gradient(180deg, rgba(25, 182, 255, 0.22), rgba(25, 182, 255, 0.08)); }
+    main { padding: 56px 0 90px; }
+    .hero, .card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--glass); padding: 30px; }
+    .hero { margin-bottom: 24px; }
+    h1 { margin: 0 0 10px; font-size: clamp(32px, 4.4vw, 52px); }
+    .lead { color: var(--muted); line-height: 1.6; max-width: 70ch; }
+    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="index.html#top" aria-label="highsystem Cloud Startseite">
+          <img class="brand-logo" src="Bilder/hsC_negativ_blau_transparent.png" alt="highsystem Cloud" />
+        </a>
+        <nav aria-label="Hauptnavigation">
+          <ul>
+            <li><a href="index.html#produkt">Produkt</a></li>
+            <li class="nav-item">
+              <a href="client-lifecyclemanagement.html">Produkte</a>
+              <ul class="nav-dropdown" aria-label="Produkte Untermenü">
+                <li><a href="client-lifecyclemanagement.html" aria-current="page">Client- &amp; Lifecyclemanagement</a></li>
+                <li><a href="infrastruktur-assetmanagement.html">Infrastruktur- &amp; Assetmanagement</a></li>
+                <li><a href="it-servicemanagement.html">IT-Servicemanagement</a></li>
+              </ul>
+            </li>
+            <li><a href="index.html#preise">Preise</a></li>
+            <li><a href="ueber-uns.html">Über uns</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
+        <div class="nav-cta"><a class="btn" href="index.html#login">Login</a><a class="btn primary" href="index.html#demo">Demo</a></div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Client- &amp; Lifecyclemanagement</h1>
+        <p class="lead">Mit unserem Client- &amp; Lifecyclemanagement standardisieren Sie den gesamten Arbeitsplatzlebenszyklus: von der Erstbereitstellung über Patch- und Software-Management bis zur sicheren Ausserbetriebnahme.</p>
+      </section>
+      <section class="grid" aria-label="Leistungsbereiche">
+        <article class="card"><h2>Automatisierte Bereitstellung</h2><p class="lead">Neue Geräte werden über standardisierte Profiles in wenigen Minuten ausgerollt.</p></article>
+        <article class="card"><h2>Lifecycle-Steuerung</h2><p class="lead">Einheitliche Prozesse für Austausch, Erneuerung und Compliance über alle Standorte.</p></article>
+        <article class="card"><h2>Transparenz</h2><p class="lead">Dashboards liefern den aktuellen Zustand aller Clients und helfen beim proaktiven Betrieb.</p></article>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
