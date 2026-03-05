@@ -473,6 +473,13 @@
       padding: clamp(10px, 2vw, 18px) 0 clamp(24px, 3vw, 32px);
     }
 
+    .products-divider {
+      width: min(760px, 100%);
+      height: 1px;
+      margin: 0 auto clamp(18px, 2.4vw, 28px);
+      background: rgba(255, 255, 255, 0.55);
+    }
+
     .products-banner__inner {
       position: relative;
       margin: 0 auto;
@@ -748,6 +755,77 @@
       font-size: 0.95rem;
     }
 
+    .product-feature-grid {
+      position: relative;
+      margin-top: 20px;
+      padding-top: 22px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .product-feature-grid::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 14px;
+      width: 1px;
+      height: calc(100% - 16px);
+      background: rgba(255, 255, 255, 0.42);
+    }
+
+    .product-feature-card {
+      position: relative;
+      margin-left: 30px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(8, 20, 38, 0.78);
+      padding: 12px 14px;
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 10px;
+      align-items: start;
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+    }
+
+    .product-feature-card::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      width: 30px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .product-feature-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      border: 1px solid rgba(139, 212, 255, 0.45);
+      background: rgba(25, 182, 255, 0.12);
+      color: #8bd4ff;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .product-feature-icon svg {
+      width: 17px;
+      height: 17px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .product-feature-text {
+      margin: 0;
+      color: rgba(234, 241, 255, 0.9);
+      line-height: 1.42;
+      font-size: 0.92rem;
+    }
+
     @keyframes splashIn {
       0% { opacity: 0; transform: scale(.75) translateY(10px); filter: blur(8px); }
       65% { opacity: 1; transform: scale(1.02) translateY(0); filter: blur(0px); }
@@ -974,6 +1052,7 @@
     <section class="section products" id="produkt" aria-label="Produkte highsystem Cloud">
       <div class="container">
         <section class="products-banner" aria-label="Produkte Banner">
+          <div class="products-divider" aria-hidden="true"></div>
           <div class="products-banner__inner">
             <div class="splash" aria-hidden="true">
               <span class="drop d1"></span>
@@ -1033,39 +1112,39 @@
                 <polygon points="445.02,445.02 938.01,445.02 445.02,938.01" fill="url(#triSheen)"/>
               </svg>
             </div>
-            <button class="product-node is-active" type="button" role="listitem" style="--top: 9%; --left: 50%;" data-icon="asset" data-title="Assetmanagement" data-text="Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus." aria-controls="product-details" aria-expanded="true">
+            <button class="product-node is-active" type="button" role="listitem" style="--top: 9%; --left: 50%;" data-icon="asset" data-title="Assetmanagement" data-text="Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus." data-features="Mit Strichcode- und Etikettenfunktionen lassen sich für jedes Asset individuelle Kennzeichnungen erstellen und sauber verwalten.||Das Audit Management dokumentiert Prüfungen nachvollziehbar und unterstützt Sie bei internen sowie externen Kontrollen.||Asset Maps visualisieren Standorte und zeigen transparent, wo sich welches Asset aktuell befindet." aria-controls="product-details" aria-expanded="true">
               <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Assetmanagement</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 19%; --left: 76%;" data-icon="helpdesk" data-title="Helpdesk" data-text="Unterstützt Anwender mit Ticketing, SLA-Tracking und schnellem Ticket-Workflow." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 19%; --left: 76%;" data-icon="helpdesk" data-title="Helpdesk" data-text="Unterstützt Anwender mit Ticketing, SLA-Tracking und schnellem Ticket-Workflow." data-features="ITIL steht für Information Technology Infrastructure Library und beschreibt bewährte Best Practices für strukturierte IT-Service-Management-Prozesse.||Mit dem Workflow Designer erstellen Sie eigene Abläufe und Genehmigungsprozesse passgenau für Ihre Organisation.||Der Formular Generator ermöglicht die Erstellung individueller Formulare, die direkt in Tickets und Serviceanfragen eingebunden werden können.||Die Wissensdatenbank stellt relevantes Wissen zentral für Supporter und Endbenutzer bereit.||Über den Live-Chat können Benutzer Anfragen direkt und unkompliziert über die Chat-Funktion einreichen." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Helpdesk</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 43%; --left: 90%;" data-icon="os" data-title="Betriebssystem" data-text="Standardisierung, Verwaltung und Monitoring der eingesetzten Betriebssysteme." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 43%; --left: 90%;" data-icon="os" data-title="Betriebssystem" data-text="Standardisierung, Verwaltung und Monitoring der eingesetzten Betriebssysteme." data-features="OS-Setup-Definitionen ermöglichen benutzerdefinierte Betriebssystem-Voreinstellungen für standardisierte Bereitstellungen.||Mit Rollout-Definitionen werden Geräte automatisiert mit individuell festgelegten Einstellungen ausgerollt.||Die Migrationsfunktionen unterstützen einen sauberen und kontrollierten Gerätewechsel.||Inplace Upgrades erlauben Versionswechsel direkt auf dem Gerät, beispielsweise von Windows 10 auf Windows 11." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Betriebssystem</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 71%; --left: 86%;" data-icon="distribution" data-title="Softwareverteilung" data-text="Automatische Auslieferung und Installation von Software im Netzwerk." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 71%; --left: 86%;" data-icon="distribution" data-title="Softwareverteilung" data-text="Automatische Auslieferung und Installation von Software im Netzwerk." data-features="Unterstützt werden Paketarten wie das Installation Toolkit (IntelliKernel) für flexible Paketierungen.||MSI-Pakete auf Basis des Microsoft Installers können standardisiert erstellt und verteilt werden.||Auch UWP-Anwendungen (Universal Windows Platform) lassen sich zentral verwalten und ausrollen.||Install-Shield-basierte Pakete werden ebenfalls vollständig unterstützt.||Über den System-Prozess können technische Verteildefinitionen für Funktionen präzise gesteuert werden.||Das Software-Inventar bietet eine vollständige Übersicht aller installierten Anwendungen pro Client." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Softwareverteilung</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 89%; --left: 64%;" data-icon="builder" data-title="Software Package Builder" data-text="Werkzeug zum Erstellen, Testen und Verwalten von Softwarepaketen." aria-controls="product-details" aria-expanded="false">
-              <span class="infobox__icon" aria-hidden="true"></span>
-              <span class="infobox__title">Package Builder</span>
-            </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 89%; --left: 36%;" data-icon="service" data-title="Software Paket Service" data-text="Bereitstellung, Aktualisierung und Lifecycle-Verwaltung von Paketen." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 89%; --left: 64%;" data-icon="builder" data-title="Paket Service" data-text="Bereitstellung vorkonfigurierter Software- und Betriebssystempakete." data-features="Der SPS (Software Paket Service) stellt vordefinierte Softwarepakete bereit, die direkt zur Verteilung eingesetzt werden können.||Der OSPS (Operating Service Paket Service) liefert vordefinierte Betriebssystempakete für schnelle und einheitliche Rollouts.||Im Software Kiosk können vorhandene Pakete per Drag-and-Drop direkt einzelnen Clients oder Benutzern zugewiesen werden." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Paket Service</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 71%; --left: 14%;" data-icon="license" data-title="Lizenzmanagement" data-text="Übersicht, Compliance und Verwaltung aller Softwarelizenzen." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 89%; --left: 36%;" data-icon="service" data-title="Clientverwaltung" data-text="Transparente Verwaltung und Überwachung aller angebundenen Clients." data-features="Die Clientübersicht zeigt alle verwalteten Clients in einer zentralen Liste mit dedizierten Filtermöglichkeiten.||Im Monitoring erhalten Sie eine kompakte Ansicht zu Hardwarezustand, Speicherkapazität und relevanten Benutzerdaten." aria-controls="product-details" aria-expanded="false">
+              <span class="infobox__icon" aria-hidden="true"></span>
+              <span class="infobox__title">Clientverwaltung</span>
+            </button>
+            <button class="product-node" type="button" role="listitem" style="--top: 71%; --left: 14%;" data-icon="license" data-title="Lizenzmanagement" data-text="Übersicht, Compliance und Verwaltung aller Softwarelizenzen." data-features="Das Vertragsmanagement schafft Transparenz über laufende Verträge und wichtige Fristen.||Die Lizenzverwaltung zeigt belegte und freie Lizenzen inklusive benutzerdefinierbarer Benachrichtigungen.||Secure Boot wird hinsichtlich Status und Verfügbarkeit zentral überwacht." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Lizenzmanagement</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 43%; --left: 10%;" data-icon="patch" data-title="Patchmanagement" data-text="Automatische Erkennung und Verteilung sicherheitsrelevanter Updates." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 43%; --left: 10%;" data-icon="patch" data-title="Patchmanagement" data-text="Automatische Erkennung und Verteilung sicherheitsrelevanter Updates." data-features="Die Patch-Verteilung erfolgt bedienerlos, zeitgesteuert und gruppierbar für kontrollierte Rollout-Szenarien.||Die Erfolgsüberwachung liefert eine klare Kontrolle über den Rollout-Status nach erfolgten Patch-Verteilungen." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Patchmanagement</span>
             </button>
-            <button class="product-node" type="button" role="listitem" style="--top: 19%; --left: 24%;" data-icon="security" data-title="Security Center" data-text="Zentrale Sicherheitsübersicht inklusive Alarmierung und Richtlinien." aria-controls="product-details" aria-expanded="false">
+            <button class="product-node" type="button" role="listitem" style="--top: 19%; --left: 24%;" data-icon="security" data-title="Security Center" data-text="Zentrale Sicherheitsübersicht inklusive Alarmierung und Richtlinien." data-features="Der Bereich Virenschutz fasst Statusmeldungen und installierte Antivirenprogramme übersichtlich zusammen.||Bitlocker wird mit aktueller Statusanzeige transparent dargestellt.||Das Trusted Platform Module (TPM) wird hinsichtlich Status und Verfügbarkeit laufend ausgewiesen.||Die Firewall-Verfügbarkeit wird für Domänen-, private und öffentliche Profile getrennt angezeigt." aria-controls="product-details" aria-expanded="false">
               <span class="infobox__icon" aria-hidden="true"></span>
               <span class="infobox__title">Security Center</span>
             </button>
@@ -1075,6 +1154,26 @@
             <div class="infobox__icon" id="product-detail-icon" aria-hidden="true"></div>
             <h3 class="infobox__title" id="product-detail-title">Assetmanagement</h3>
             <p class="infobox__text" id="product-detail-text">Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus.</p>
+            <div class="product-feature-grid" id="product-detail-list">
+              <article class="product-feature-card">
+                <div class="product-feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4z"></path><path d="M7 4v3M17 4v3"></path><path d="M8 11h8M8 15h5"></path></svg>
+                </div>
+                <p class="product-feature-text">Mit Strichcode- und Etikettenfunktionen lassen sich für jedes Asset individuelle Kennzeichnungen erstellen und sauber verwalten.</p>
+              </article>
+              <article class="product-feature-card">
+                <div class="product-feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 4-2.5 7.4-7 9-4.5-1.6-7-5-7-9V6z"></path><path d="m9.5 12 1.8 1.8 3.5-3.5"></path></svg>
+                </div>
+                <p class="product-feature-text">Das Audit Management dokumentiert Prüfungen nachvollziehbar und unterstützt Sie bei internen sowie externen Kontrollen.</p>
+              </article>
+              <article class="product-feature-card">
+                <div class="product-feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M3.5 9 12 4l8.5 5v6L12 20l-8.5-5z"></path><path d="M12 8v8M8 10.5l8 5"></path></svg>
+                </div>
+                <p class="product-feature-text">Asset Maps visualisieren Standorte und zeigen transparent, wo sich welches Asset aktuell befindet.</p>
+              </article>
+            </div>
           </div>
         </div>
       </div>
@@ -1109,6 +1208,45 @@
     const detailIcon = document.getElementById('product-detail-icon');
     const detailTitle = document.getElementById('product-detail-title');
     const detailText = document.getElementById('product-detail-text');
+    const detailList = document.getElementById('product-detail-list');
+
+    const featureIconSvgs = {
+      label: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v10H4z"></path><path d="M7 4v3M17 4v3"></path><path d="M8 11h8M8 15h5"></path></svg>',
+      shield: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v6c0 4-2.5 7.4-7 9-4.5-1.6-7-5-7-9V6z"></path><path d="m9.5 12 1.8 1.8 3.5-3.5"></path></svg>',
+      map: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 9 12 4l8.5 5v6L12 20l-8.5-5z"></path><path d="M12 8v8M8 10.5l8 5"></path></svg>',
+      workflow: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h6v4H5zM13 14h6v4h-6z"></path><path d="M11 8h3m-3 8h2"></path><path d="M14 8v6"></path></svg>',
+      form: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="2"></rect><path d="M8 9h8M8 13h8M8 17h5"></path></svg>',
+      chat: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v10H9l-5 4z"></path><path d="M8 9h8M8 12h5"></path></svg>',
+      monitor: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4" width="17" height="11" rx="1.8"></rect><path d="M9 20h6M12 15v5"></path></svg>',
+      package: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.8 20 8v8l-8 4.2L4 16V8z"></path><path d="M12 8v12"></path><path d="m4 8 8 4 8-4"></path></svg>',
+      license: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2"></rect><path d="M9 8h6M9 12h6M9 16h4"></path></svg>',
+      security: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 19 6v5.5c0 4.1-2.6 7.8-7 9-4.4-1.2-7-4.9-7-9V6z"></path><path d="m9.2 12.2 2 2 3.6-3.6"></path></svg>'
+    };
+
+    const featureIconKey = (feature) => {
+      const value = feature.toLowerCase();
+      if (/etikett|strichcode|inventar|paket|software|kiosk/.test(value)) return 'package';
+      if (/audit|sicher|schutz|secure|bitlocker|firewall|virus|tpm/.test(value)) return 'security';
+      if (/map|standort|migration/.test(value)) return 'map';
+      if (/workflow|genehmigung|prozess|rollout/.test(value)) return 'workflow';
+      if (/formular|definition|lizenz|vertrag/.test(value)) return 'form';
+      if (/chat|wissensdatenbank|helpdesk|itil/.test(value)) return 'chat';
+      if (/monitoring|client|hardware|betriebssystem|upgrade/.test(value)) return 'monitor';
+      return 'label';
+    };
+
+    const renderFeatureList = (node) => {
+      if (!detailList) return;
+      const features = (node?.dataset.features || '')
+        .split('||')
+        .map((item) => item.trim())
+        .filter(Boolean);
+
+      detailList.innerHTML = features.map((feature) => {
+        const icon = featureIconSvgs[featureIconKey(feature)] || featureIconSvgs.label;
+        return `<article class="product-feature-card"><div class="product-feature-icon" aria-hidden="true">${icon}</div><p class="product-feature-text">${feature}</p></article>`;
+      }).join('');
+    };
 
     productNodes.forEach((node) => {
       const nodeIcon = node.querySelector('.infobox__icon');
@@ -1116,6 +1254,7 @@
     });
 
     detailIcon.innerHTML = iconMarkup(productNodes[0]?.dataset.icon || 'asset');
+    renderFeatureList(productNodes[0]);
 
     productNodes.forEach((node) => {
       node.addEventListener('click', () => {
@@ -1130,6 +1269,7 @@
         detailIcon.innerHTML = iconMarkup(node.dataset.icon);
         detailTitle.textContent = node.dataset.title;
         detailText.textContent = node.dataset.text;
+        renderFeatureList(node);
       });
     });
   </script>
