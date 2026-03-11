@@ -688,9 +688,9 @@
       outline: none;
     }
 
-    .infobox__icon {
-      width: clamp(22px, 3.2vw, 34px);
-      height: clamp(22px, 3.2vw, 34px);
+    .product-node .infobox__icon {
+      width: clamp(24px, 3.6vw, 38px);
+      height: clamp(24px, 3.6vw, 38px);
       margin: 0;
       color: #8bd4ff;
       display: inline-grid;
@@ -707,9 +707,9 @@
       stroke-linejoin: round;
     }
 
-    .infobox__title {
+    .product-node .infobox__title {
       margin: 0;
-      font-size: clamp(0.52rem, 1.25vw, 0.82rem);
+      font-size: clamp(0.56rem, 1.34vw, 0.88rem);
       line-height: 1.15;
       text-align: center;
       max-width: 100%;
@@ -748,12 +748,6 @@
       margin-bottom: 10px;
     }
 
-    .infobox__text {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.5;
-      font-size: 0.95rem;
-    }
 
     .product-feature-grid {
       position: relative;
@@ -1153,7 +1147,6 @@
           <div class="product-details" id="product-details" aria-live="polite">
             <div class="infobox__icon" id="product-detail-icon" aria-hidden="true"></div>
             <h3 class="infobox__title" id="product-detail-title">Assetmanagement</h3>
-            <p class="infobox__text" id="product-detail-text">Verwaltung und Nachverfolgung aller IT-Assets über ihren gesamten Lebenszyklus.</p>
             <div class="product-feature-grid" id="product-detail-list"></div>
           </div>
         </div>
@@ -1188,7 +1181,6 @@
     const productNodes = document.querySelectorAll('.product-node');
     const detailIcon = document.getElementById('product-detail-icon');
     const detailTitle = document.getElementById('product-detail-title');
-    const detailText = document.getElementById('product-detail-text');
     const detailList = document.getElementById('product-detail-list');
 
     const featureIconSvgs = {
@@ -1256,7 +1248,6 @@
 
         detailIcon.innerHTML = iconMarkup(node.dataset.icon);
         detailTitle.textContent = node.dataset.title;
-        detailText.textContent = node.dataset.text;
         renderFeatureList(node);
       });
     });
