@@ -57,11 +57,49 @@
     .btn { border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.05); color: var(--text); padding: 10px 14px; border-radius: 999px; text-decoration: none; }
     .btn.primary { border-color: rgba(25, 182, 255, 0.45); background: linear-gradient(180deg, rgba(25, 182, 255, 0.22), rgba(25, 182, 255, 0.08)); }
     main { padding: 56px 0 90px; }
-    .hero, .card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--glass); padding: 30px; }
-    .hero { margin-bottom: 24px; }
+    .hero { border: 1px solid var(--line); border-radius: var(--radius); background: var(--glass); padding: 30px; margin-bottom: 24px; }
     h1 { margin: 0 0 10px; font-size: clamp(32px, 4.4vw, 52px); }
     .lead { color: var(--muted); line-height: 1.6; max-width: 70ch; }
-    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .lifecycle-hero { padding: 10px 0 0; }
+    .section-title { margin: 0 0 10px; font-size: clamp(24px, 3.1vw, 34px); }
+    .section-intro { margin: 0 0 26px; color: var(--muted); max-width: 70ch; line-height: 1.5; }
+    .process-flow { display: grid; grid-template-columns: 1fr; gap: 22px; max-width: 760px; }
+    .process-step {
+      position: relative;
+      padding: 0 0 18px 72px;
+      min-height: 74px;
+    }
+    .process-step:not(:last-child)::after {
+      content: "\2193";
+      position: absolute;
+      left: 14px;
+      bottom: -14px;
+      color: rgba(25, 182, 255, 0.8);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 700;
+    }
+    .process-step:last-child { padding-bottom: 0; }
+    .step-icon {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(25, 182, 255, 0.45);
+      background: rgba(25, 182, 255, 0.12);
+    }
+    .step-icon svg { width: 22px; height: 22px; stroke: #8ddfff; stroke-width: 1.8; fill: none; }
+    .process-step h3 { margin: 0 0 8px; font-size: 18px; }
+    .process-step p { margin: 0; color: var(--muted); line-height: 1.45; font-size: 14px; }
+    @media (max-width: 640px) {
+      .process-step { padding-left: 64px; }
+      .section-intro { margin-bottom: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -97,10 +135,46 @@
         <h1>Client- &amp; Lifecyclemanagement</h1>
         <p class="lead">Mit unserem Client- &amp; Lifecyclemanagement standardisieren Sie den gesamten Arbeitsplatzlebenszyklus: von der Erstbereitstellung über Patch- und Software-Management bis zur sicheren Ausserbetriebnahme.</p>
       </section>
-      <section class="grid" aria-label="Leistungsbereiche">
-        <article class="card"><h2>Automatisierte Bereitstellung</h2><p class="lead">Neue Geräte werden über standardisierte Profiles in wenigen Minuten ausgerollt.</p></article>
-        <article class="card"><h2>Lifecycle-Steuerung</h2><p class="lead">Einheitliche Prozesse für Austausch, Erneuerung und Compliance über alle Standorte.</p></article>
-        <article class="card"><h2>Transparenz</h2><p class="lead">Dashboards liefern den aktuellen Zustand aller Clients und helfen beim proaktiven Betrieb.</p></article>
+      <section class="lifecycle-hero" aria-label="Prozessdarstellung Arbeitsplatzlebenszyklus">
+        <h2 class="section-title">Arbeitsplatzlebenszyklus auf einen Blick</h2>
+        <p class="section-intro">Von der Erstbereitstellung bis zur sicheren Ausmusterung folgt jeder Client einem klar definierten Prozess mit hoher Transparenz.</p>
+        <div class="process-flow">
+          <article class="process-step">
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="2"></rect><path d="M8 19h8"></path><path d="M12 16v3"></path></svg>
+            </span>
+            <h3>Bereitstellung</h3>
+            <p>Geräte werden vorkonfiguriert, ausgerollt und direkt einsatzbereit geliefert.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3v18"></path><path d="M5 9h14"></path><path d="M5 15h14"></path></svg>
+            </span>
+            <h3>Betrieb</h3>
+            <p>Zentrale Verwaltung aller Clients im laufenden Betrieb.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 3v4"></path><path d="M12 17v4"></path><path d="M4.9 7.5l3 1.7"></path><path d="M16.1 14.8l3 1.7"></path><path d="M4.9 16.5l3-1.7"></path><path d="M16.1 9.2l3-1.7"></path><circle cx="12" cy="12" r="3.5"></circle></svg>
+            </span>
+            <h3>Patchen</h3>
+            <p>Updates und Sicherheitspatches werden kontrolliert und automatisiert eingespielt.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="3" y="6" width="7" height="12" rx="1.5"></rect><rect x="14" y="6" width="7" height="12" rx="1.5"></rect><path d="M10 12h4"></path><path d="M12 10l2 2-2 2"></path></svg>
+            </span>
+            <h3>Austausch</h3>
+            <p>Veraltete oder defekte Geräte werden geplant ersetzt.</p>
+          </article>
+          <article class="process-step">
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M5 7h14"></path><path d="M7 7l1 12h8l1-12"></path><path d="M10 11v5"></path><path d="M14 11v5"></path><path d="M9 7l1-2h4l1 2"></path></svg>
+            </span>
+            <h3>Ausserbetriebnahme</h3>
+            <p>Sichere Rücknahme, Datenlöschung und geordnete Ausmusterung.</p>
+          </article>
+        </div>
       </section>
     </div>
   </main>
