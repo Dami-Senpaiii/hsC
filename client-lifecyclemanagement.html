@@ -56,7 +56,12 @@
     .nav-cta { display: flex; gap: 10px; }
     .btn { border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.05); color: var(--text); padding: 10px 14px; border-radius: 999px; text-decoration: none; }
     .btn.primary { border-color: rgba(25, 182, 255, 0.45); background: linear-gradient(180deg, rgba(25, 182, 255, 0.22), rgba(25, 182, 255, 0.08)); }
-    main { padding: 56px 0 90px; }
+    main { padding: 56px 0 48px; }
+    footer { padding: 1.8rem 0 2.2rem; border-top: 1px solid rgba(255, 255, 255, 0.08); color: var(--muted); font-size: 0.9rem; background: rgba(3, 8, 18, 0.55); }
+    .footer-grid { display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: center; justify-content: space-between; }
+    .footer-links { display: flex; gap: 14px; flex-wrap: wrap; }
+    .footer-links a { color: rgba(234, 241, 255, 0.74); text-decoration: none; font-size: 0.86rem; }
+    .footer-links a:hover { color: var(--text); }
     .hero { border: 1px solid var(--line); border-radius: var(--radius); background: var(--glass); padding: 30px; margin-bottom: 24px; }
     h1 { margin: 0 0 10px; font-size: clamp(32px, 4.4vw, 52px); }
     .lead { color: var(--muted); line-height: 1.6; max-width: 70ch; }
@@ -121,7 +126,7 @@
                 <li><a href="it-servicemanagement.html">IT-Servicemanagement</a></li>
               </ul>
             </li>
-            <li><a href="index.html#preise">Preise</a></li>
+            <li><a href="preise.html">Preise</a></li>
             <li><a href="ueber-uns.html">Über uns</a></li>
             <li><a href="index.html#kontakt">Kontakt</a></li>
           </ul>
@@ -179,5 +184,16 @@
       </section>
     </div>
   </main>
+  <footer>
+    <div class="container footer-grid">
+      <div>© <span id="year">2026</span> highsystem | Cloud · Mockup Website</div>
+      <div class="footer-links">
+        <a href="index.html#produkt">Home</a>
+        <a href="preise.html">Preise</a>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="mailto:cloud@highsystem.ch">cloud@highsystem.ch</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

@@ -327,11 +327,32 @@
 
     footer {
       border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 24px 0 34px;
-      color: rgba(234, 241, 255, 0.6);
-      font-size: 13px;
+      padding: 2rem 0 2.3rem;
+      color: rgba(234, 241, 255, 0.7);
+      font-size: 0.9rem;
       position: relative;
       z-index: 2;
+      background: rgba(3, 8, 18, 0.55);
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px 28px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(234, 241, 255, 0.74);
+      text-decoration: none;
+      font-size: 0.86rem;
     }
 
     @media (max-width: 920px) {
@@ -380,7 +401,7 @@
                 <li><a href="it-servicemanagement.html">IT-Servicemanagement</a></li>
               </ul>
             </li>
-            <li><a href="index.html#preise">Preise</a></li>
+            <li><a href="preise.html">Preise</a></li>
             <li><a href="ueber-uns.html" aria-current="page">Über uns</a></li>
             <li><a href="index.html#kontakt">Kontakt</a></li>
           </ul>
@@ -484,7 +505,15 @@
   </main>
 
   <footer>
-    <div class="container">© <span id="year">2026</span> highsystem | Cloud — Erste Version der Startseite.</div>
+    <div class="container footer-grid">
+      <div>© <span id="year">2026</span> highsystem | Cloud · Mockup Website</div>
+      <div class="footer-links">
+        <a href="index.html#produkt">Home</a>
+        <a href="preise.html">Preise</a>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="mailto:cloud@highsystem.ch">cloud@highsystem.ch</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
