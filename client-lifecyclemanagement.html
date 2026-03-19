@@ -66,16 +66,17 @@
     .process-flow { display: grid; grid-template-columns: 1fr; gap: 22px; max-width: 760px; }
     .process-step {
       position: relative;
-      padding: 0 0 18px 72px;
+      padding: 0 0 26px 72px;
       min-height: 74px;
     }
     .process-step:not(:last-child)::after {
       content: "\2193";
       position: absolute;
-      left: 14px;
-      bottom: -14px;
+      left: 22px;
+      top: 52px;
+      transform: translateX(-50%);
       color: rgba(25, 182, 255, 0.8);
-      font-size: 18px;
+      font-size: 28px;
       line-height: 1;
       font-weight: 700;
     }
