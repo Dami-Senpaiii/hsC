@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Infrastruktur- &amp; Assetmanagement | highsystem | Cloud</title>
-  <meta name="description" content="Infrastruktur- & Assetmanagement: Lösungen für Betriebssicherheit, Automatisierung und zuverlässigen IT-Betrieb." />
+  <title>Preise | highsystem | Cloud</title>
+  <meta name="description" content="SaaS-Preistabelle für highsystem Cloud mit den Paketen Core, Plus, Premium und Enterprise." />
   <style>
     :root {
       --bg0: #040812;
@@ -35,6 +35,7 @@
       backdrop-filter: blur(10px);
       background: linear-gradient(180deg, rgba(4, 8, 18, 0.72), rgba(4, 8, 18, 0.25));
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 10;
     }
     .nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 14px 0; }
     .brand-logo { height: 34px; }
@@ -56,17 +57,36 @@
     .nav-cta { display: flex; gap: 10px; }
     .btn { border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.05); color: var(--text); padding: 10px 14px; border-radius: 999px; text-decoration: none; }
     .btn.primary { border-color: rgba(25, 182, 255, 0.45); background: linear-gradient(180deg, rgba(25, 182, 255, 0.22), rgba(25, 182, 255, 0.08)); }
-    main { padding: 56px 0 48px; }
+
+    main { padding: clamp(42px, 6vw, 84px) 0 44px; }
+    .hero { border: 1px solid var(--line); border-radius: var(--radius); background: var(--glass); padding: 30px; margin-bottom: 22px; }
+    h1 { margin: 0 0 10px; font-size: clamp(32px, 4.4vw, 52px); }
+    .lead { color: var(--muted); line-height: 1.6; max-width: 70ch; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .pricing-card {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      background: rgba(8, 20, 38, 0.78);
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+    }
+    .pricing-card.featured {
+      border-color: rgba(25, 182, 255, 0.5);
+      box-shadow: 0 16px 40px rgba(25, 182, 255, 0.12);
+      transform: translateY(-4px);
+    }
+    .plan-price { font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; letter-spacing: -0.02em; }
+    .plan-price small { font-size: 0.95rem; color: var(--muted); font-weight: 500; }
+    .pricing-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; color: rgba(234, 241, 255, 0.87); font-size: 0.93rem; }
+    .pricing-card li::before { content: "✓"; color: var(--accent); margin-right: 8px; font-weight: 700; }
+    .pricing-note { margin-top: 14px; color: rgba(234, 241, 255, 0.65); font-size: 0.85rem; }
+
     footer { padding: 1.8rem 0 2.2rem; border-top: 1px solid rgba(255, 255, 255, 0.08); color: var(--muted); font-size: 0.9rem; background: rgba(3, 8, 18, 0.55); }
     .footer-grid { display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: center; justify-content: space-between; }
     .footer-links { display: flex; gap: 14px; flex-wrap: wrap; }
     .footer-links a { color: rgba(234, 241, 255, 0.74); text-decoration: none; font-size: 0.86rem; }
-    .footer-links a:hover { color: var(--text); }
-    .hero, .card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--glass); padding: 30px; }
-    .hero { margin-bottom: 24px; }
-    h1 { margin: 0 0 10px; font-size: clamp(32px, 4.4vw, 52px); }
-    .lead { color: var(--muted); line-height: 1.6; max-width: 70ch; }
-    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   </style>
 </head>
 <body>
@@ -80,14 +100,14 @@
           <ul>
             <li><a href="index.html#produkt">Home</a></li>
             <li class="nav-item">
-              <a href="infrastruktur-assetmanagement.html">Produkte</a>
+              <a href="client-lifecyclemanagement.html">Produkte</a>
               <ul class="nav-dropdown" aria-label="Produkte Untermenü">
                 <li><a href="client-lifecyclemanagement.html">Client- &amp; Lifecyclemanagement</a></li>
-                <li><a href="infrastruktur-assetmanagement.html" aria-current="page">Infrastruktur- &amp; Assetmanagement</a></li>
+                <li><a href="infrastruktur-assetmanagement.html">Infrastruktur- &amp; Assetmanagement</a></li>
                 <li><a href="it-servicemanagement.html">IT-Servicemanagement</a></li>
               </ul>
             </li>
-            <li><a href="preise.html">Preise</a></li>
+            <li><a href="preise.html" aria-current="page">Preise</a></li>
             <li><a href="ueber-uns.html">Über uns</a></li>
             <li><a href="index.html#kontakt">Kontakt</a></li>
           </ul>
@@ -96,19 +116,71 @@
       </div>
     </div>
   </header>
+
   <main>
     <div class="container">
       <section class="hero">
-        <h1>Infrastruktur- &amp; Assetmanagement</h1>
-        <p class="lead">Mit Infrastruktur- &amp; Assetmanagement behalten Sie Hardware, virtuelle Ressourcen und deren Abhängigkeiten zentral im Griff.</p>
+        <h1>Preise</h1>
+        <p class="lead">Transparente SaaS-Pakete für IT-Teams jeder Grösse. Die folgenden Werte sind Mockup-Daten und dienen als realistische Orientierung für Ihre Budgetplanung.</p>
       </section>
-      <section class="grid" aria-label="Leistungsbereiche">
-        <article class="card"><h2>Asset Discovery</h2><p class="lead">Alle Assets werden automatisch erfasst und den verantwortlichen Services zugeordnet.</p></article>
-        <article class="card"><h2>Kapazitätsplanung</h2><p class="lead">Nutzungsdaten und Zustände unterstützen investitionssichere Infrastrukturentscheidungen.</p></article>
-        <article class="card"><h2>Transparenz</h2><p class="lead">Frühzeitige Warnungen reduzieren Ausfälle und verbessern die Serviceverfügbarkeit nachhaltig.</p></article>
+      <section class="pricing-grid" aria-label="Preispakete">
+        <article class="pricing-card">
+          <div>
+            <h2>Core</h2>
+            <p class="plan-price">CHF 29 <small>/ Client &amp; Monat</small></p>
+          </div>
+          <ul>
+            <li>Client-Inventar &amp; Basis-Monitoring</li>
+            <li>Patch- und Updateverteilung</li>
+            <li>Standard-Reports</li>
+            <li>E-Mail Support (Mo-Fr)</li>
+          </ul>
+          <a class="btn" href="index.html#beratung">Paket anfragen</a>
+        </article>
+        <article class="pricing-card featured">
+          <div>
+            <h2>Plus</h2>
+            <p class="plan-price">CHF 49 <small>/ Client &amp; Monat</small></p>
+          </div>
+          <ul>
+            <li>Alle Core-Funktionen</li>
+            <li>Softwareverteilung &amp; Rollout-Pläne</li>
+            <li>Lizenzmanagement</li>
+            <li>SLA-Support mit Reaktionszeit</li>
+          </ul>
+          <a class="btn primary" href="index.html#demo">Meistgewählt</a>
+        </article>
+        <article class="pricing-card">
+          <div>
+            <h2>Premium</h2>
+            <p class="plan-price">CHF 79 <small>/ Client &amp; Monat</small></p>
+          </div>
+          <ul>
+            <li>Alle Plus-Funktionen</li>
+            <li>ITSM inkl. Ticket-Workflows</li>
+            <li>Security Center &amp; Compliance-Dashboards</li>
+            <li>Onboarding Workshop inklusive</li>
+          </ul>
+          <a class="btn" href="index.html#kontakt">Kontakt aufnehmen</a>
+        </article>
+        <article class="pricing-card">
+          <div>
+            <h2>Enterprise</h2>
+            <p class="plan-price">ab CHF 99 <small>/ Client &amp; Monat</small></p>
+          </div>
+          <ul>
+            <li>Alle Premium-Funktionen</li>
+            <li>Mandantenbetrieb &amp; API-Integrationen</li>
+            <li>Dedizierter Customer Success Manager</li>
+            <li>Individuelle Betriebs- und SLA-Modelle</li>
+          </ul>
+          <a class="btn" href="index.html#beratung">Individuelles Angebot</a>
+        </article>
       </section>
+      <p class="pricing-note">Mockup-Preise zur Orientierung. Finale Konditionen abhängig von Benutzeranzahl, Modulen und Vertragslaufzeit.</p>
     </div>
   </main>
+
   <footer>
     <div class="container footer-grid">
       <div>© <span id="year">2026</span> highsystem | Cloud · Mockup Website</div>

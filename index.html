@@ -879,11 +879,135 @@
       to { transform: translate3d(40px, -24px, 0) scale(1.15); }
     }
 
+    .pricing-section {
+      padding: 2.2rem 0 2.8rem;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-head h2 {
+      margin: 0 0 0.6rem;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: -0.02em;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      background: rgba(8, 20, 38, 0.78);
+      padding: 20px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .pricing-card.featured {
+      border-color: rgba(25, 182, 255, 0.5);
+      box-shadow: 0 16px 40px rgba(25, 182, 255, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .plan-price {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .plan-price small {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .pricing-card ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: rgba(234, 241, 255, 0.87);
+      font-size: 0.93rem;
+    }
+
+    .pricing-card li::before {
+      content: "✓";
+      color: var(--accent);
+      margin-right: 8px;
+      font-weight: 700;
+    }
+
+    .pricing-note {
+      margin-top: 14px;
+      color: rgba(234, 241, 255, 0.65);
+      font-size: 0.85rem;
+    }
+
+    .contact-section {
+      padding: 1.3rem 0 1.8rem;
+    }
+
+    .contact-box {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(6, 18, 36, 0.72);
+      padding: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .contact-box p {
+      margin: 0;
+      color: var(--muted);
+    }
+
     footer {
-      padding: 3.5rem 0 4.5rem;
+      padding: 2rem 0 2.3rem;
       color: var(--muted);
       font-size: 0.9rem;
-      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(3, 8, 18, 0.55);
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px 28px;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(234, 241, 255, 0.74);
+      text-decoration: none;
+      font-size: 0.86rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
     }
 
     @media (max-width: 920px) {
@@ -941,7 +1065,7 @@
                 <li><a href="it-servicemanagement.html">IT-Servicemanagement</a></li>
               </ul>
             </li>
-            <li><a href="#preise">Preise</a></li>
+            <li><a href="preise.html">Preise</a></li>
             <li><a href="ueber-uns.html">Über uns</a></li>
             <li><a href="#kontakt">Kontakt</a></li>
           </ul>
@@ -1162,16 +1286,94 @@
         </div>
       </div>
     </section>
-    <section class="section" id="sicherheit"></section>
-    <section class="section" id="preise"></section>
-    <section class="section" id="kontakt"></section>
-    <section class="section" id="login"></section>
-    <section class="section" id="demo"></section>
-    <section class="section" id="beratung"></section>
+    <section class="section pricing-section" id="preise" aria-label="Preise">
+      <div class="container">
+        <div class="section-head">
+          <h2>Preise für jedes IT-Team</h2>
+          <p>Wählen Sie das passende Paket für Ihre Unternehmensgrösse. Alle Pakete beinhalten Hosting in der Schweiz, regelmässige Updates und deutschsprachigen Support.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="pricing-card">
+            <div>
+              <h3>Core</h3>
+              <p class="plan-price">CHF 29 <small>/ Client &amp; Monat</small></p>
+            </div>
+            <ul>
+              <li>Client-Inventar &amp; Basis-Monitoring</li>
+              <li>Patch- und Updateverteilung</li>
+              <li>Standard-Reports</li>
+              <li>E-Mail Support (Mo-Fr)</li>
+            </ul>
+            <a class="btn" href="#beratung">Paket anfragen</a>
+          </article>
+          <article class="pricing-card featured">
+            <div>
+              <h3>Plus</h3>
+              <p class="plan-price">CHF 49 <small>/ Client &amp; Monat</small></p>
+            </div>
+            <ul>
+              <li>Alle Core-Funktionen</li>
+              <li>Softwareverteilung &amp; Rollout-Pläne</li>
+              <li>Lizenzmanagement</li>
+              <li>SLA-Support mit Reaktionszeit</li>
+            </ul>
+            <a class="btn primary" href="#demo">Meistgewählt</a>
+          </article>
+          <article class="pricing-card">
+            <div>
+              <h3>Premium</h3>
+              <p class="plan-price">CHF 79 <small>/ Client &amp; Monat</small></p>
+            </div>
+            <ul>
+              <li>Alle Plus-Funktionen</li>
+              <li>ITSM inkl. Ticket-Workflows</li>
+              <li>Security Center &amp; Compliance-Dashboards</li>
+              <li>Onboarding Workshop inklusive</li>
+            </ul>
+            <a class="btn" href="#kontakt">Kontakt aufnehmen</a>
+          </article>
+          <article class="pricing-card">
+            <div>
+              <h3>Enterprise</h3>
+              <p class="plan-price">ab CHF 99 <small>/ Client &amp; Monat</small></p>
+            </div>
+            <ul>
+              <li>Alle Premium-Funktionen</li>
+              <li>Mandantenbetrieb &amp; API-Integrationen</li>
+              <li>Dedizierter Customer Success Manager</li>
+              <li>Individuelle Betriebs- und SLA-Modelle</li>
+            </ul>
+            <a class="btn" href="#beratung">Individuelles Angebot</a>
+          </article>
+        </div>
+        <p class="pricing-note">Mockup-Preise zur Orientierung. Finale Konditionen abhängig von Benutzeranzahl, Modulen und Vertragslaufzeit.</p>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="kontakt" aria-label="Kontakt">
+      <div class="container">
+        <div class="contact-box">
+          <p><strong>Bereit für den nächsten Schritt?</strong><br>Wir beraten Sie zu Setup, Migration und dem passenden Paket.</p>
+          <div class="hero-actions">
+            <a class="btn" id="login" href="#top">Login</a>
+            <a class="btn primary" id="demo" href="mailto:cloud@highsystem.ch">Demo anfragen</a>
+            <a class="btn" id="beratung" href="mailto:cloud@highsystem.ch">Beratung buchen</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div class="container">© <span id="year">2026</span> highsystem | Cloud — Erste Version der Startseite.</div>
+    <div class="container footer-grid">
+      <div>© <span id="year">2026</span> highsystem | Cloud · Mockup Website</div>
+      <div class="footer-links">
+        <a href="index.html#produkt">Home</a>
+        <a href="preise.html">Preise</a>
+        <a href="ueber-uns.html">Über uns</a>
+        <a href="mailto:cloud@highsystem.ch">cloud@highsystem.ch</a>
+      </div>
+    </div>
   </footer>
   <script>
     const iconSvgs = {
