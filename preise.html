@@ -55,8 +55,8 @@
       padding: 8px 6px; border-bottom: 1px solid transparent;
     }
     nav a:hover, nav a:focus-visible, nav a[aria-current="page"] { color: var(--text); border-bottom-color: rgba(25, 182, 255, 0.65); }
-    .nav-cta { display: flex; gap: 10px; }
-    .btn { border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.05); color: var(--text); padding: 10px 14px; border-radius: 999px; text-decoration: none; }
+    .nav-cta { display: flex; align-items: center; gap: 10px; min-width: 220px; justify-content: flex-end; }
+    .btn { border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(255, 255, 255, 0.05); color: var(--text); padding: 10px 14px; border-radius: 999px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; text-align: center; }
     .btn.primary { border-color: rgba(25, 182, 255, 0.45); background: linear-gradient(180deg, rgba(25, 182, 255, 0.22), rgba(25, 182, 255, 0.08)); }
 
     main { padding: clamp(42px, 6vw, 84px) 0 44px; }
@@ -110,7 +110,7 @@
             </li>
             <li><a href="preise.html" aria-current="page">Preise</a></li>
             <li><a href="ueber-uns.html">Über uns</a></li>
-            <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
           </ul>
         </nav>
         <div class="nav-cta"><a class="btn" href="index.html#login">Login</a><a class="btn primary" href="index.html#demo">Demo</a></div>
@@ -162,7 +162,7 @@
             <li>Security Center &amp; Compliance-Dashboards</li>
             <li>Onboarding Workshop inklusive</li>
           </ul>
-          <a class="btn" href="index.html#kontakt">Kontakt aufnehmen</a>
+          <a class="btn" href="kontakt.html">Kontakt aufnehmen</a>
         </article>
         <article class="pricing-card">
           <div>
